@@ -25,28 +25,66 @@ public class Person implements Comparable<Person> {
         this.nationality = nationality;
         this.location = location;
     }
-    public Long getId(){
+
+    public Long getId() {
         return id;
     }
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public Coordinates getCoordinates(){
+    public Coordinates getCoordinates() {
         return coordinates;
     }
-    public LocalDateTime getCreationDate(){
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
-    public int getHeight(){
+    public int getHeight() {
         return height;
     }
-    public EColor getEyeColor(){
+    public EColor getEyeColor() {
         return eyeColor;
     }
-    public HColor getHairColor(){
+    public HColor getHairColor() {
         return hairColor;
     }
-    public Country getNationality(){
+    public Country getNationality() {
         return nationality;
     }
+    public Location getLocation(){
+        return location;
+    }
+
+    public int compareTo(Person personObj) {
+        return id.compareTo(personObj.getId());
+
+    }
+    public String toString() {
+        String info = "";
+        info += "Человек" + id;
+        info += " (добавлен " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
+        info += "\n Имя: " + name;
+        info += "\n Местоположение: " + coordinates;
+        info += "\n Рост: " + height;
+        info += "\n Цвет глаз: " + eyeColor;
+        info += "\n Цвет волос: " + hairColor;
+        info += "\n Страна проживания: " + nationality;
+        info += "\n Местороложение: " + location;
+        return info;
+    }
+    public int hashCode() {
+        return name.hashCode() + coordinates.hashCode() + height + eyeColor.hashCode() + eyeColor.hashCode() +
+                nationality.hashCode() + location.hashCode();
+    }
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj instanceof Person) {
+            Person personObj = (Person) obj;
+            return name.equals(personObj.getName()) && coordinates.equals(personObj.getCoordinates()) &&
+                    (height == personObj.getHeight()) && (eyeColor == personObj.getEyeColor()) &&
+                    (hairColor == personObj.getHairColor()) && (nationality == personObj.getNationality()) &&
+                    location.equals(personObj.getLocation()) && (creationDate == personObj.getCreationDate());
+        }
+        return false;
+    }
+
 }
