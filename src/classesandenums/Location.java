@@ -30,7 +30,6 @@ public class Location {
     public int hashCode() {
         return x.hashCode() + (int) y + z.hashCode() + name.hashCode();
     }
-
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj instanceof Location) {
