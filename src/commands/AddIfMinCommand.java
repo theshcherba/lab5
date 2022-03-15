@@ -1,4 +1,6 @@
 package commands;
 
-public class AddIfMinCommand {
+public class AddIfMinCommand extends AbstractCommand{
+
 }
+
