@@ -4,9 +4,12 @@ import classesandenums.Person;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
-
+import java.util.NavigableSet;
+/**
+ * Управляет самой коллекцией.
+ */
 public class CollectionManager {
-        private NavigableSet<Person> marinesCollection = new LinkedHashSet<>();
+        private NavigableSet<Person> personCollection = new LinkedHashSet<>();
         private LocalDateTime lastInitTime;
         private LocalDateTime lastSaveTime;
         private FileManager fileManager;
@@ -18,106 +21,73 @@ public class CollectionManager {
 
             loadCollection();
         }
-
-        /**
-         * @return The collecton itself.
-         */
-        public NavigableSet<SpaceMarine> getCollection() {
-            return marinesCollection;
+    /**
+     * возращает саму коллекцию.
+     */
+        public NavigableSet<Person> getCollection() {
+            return personCollection;
         }
-
-        /**
-         * @return Last initialization time or null if there wasn't initialization.
-         */
+    /**
+     * возращает время последней инициализации или null, если инициализации не было.
+     */
         public LocalDateTime getLastInitTime() {
             return lastInitTime;
         }
-
-        /**
-         * @return Last save time or null if there wasn't saving.
-         */
+    /**
+     * возращает последнее сохранение времени или ноль, если не было сохранения.
+     */
         public LocalDateTime getLastSaveTime() {
             return lastSaveTime;
         }
-
-        /**
-         * @return Name of the collection's type.
-         */
+    /**
+     * возращает название типа коллекции.
+     */
         public String collectionType() {
-            return marinesCollection.getClass().getName();
+            return personCollection.getClass().getName();
         }
-
-        /**
-         * @return Size of the collection.
-         */
+    /**
+     * возращает зазмер коллекции.
+     */
         public int collectionSize() {
-            return marinesCollection.size();
+            return personCollection.size();
+        }
+    /**
+     * возращает первый элемент коллекции или null, если коллекция пуста.
+     */
+        public Person getFirst() {
+            if (personCollection.isEmpty()) return null;
+            return personCollection.first();
+        }
+    /**
+     * возращает последний элемент коллекции или null, если коллекция пуста.
+     */
+        public Person getLast() {
+            if (personCollection.isEmpty()) return null;
+            return personCollection.last();
         }
 
-        /**
-         * @return The first element of the collection or null if collection is empty.
-         */
-        public SpaceMarine getFirst() {
-            if (marinesCollection.isEmpty()) return null;
-            return marinesCollection.first();
-        }
-
-        /**
-         * @return The last element of the collection or null if collection is empty.
-         */
-        public SpaceMarine getLast() {
-            if (marinesCollection.isEmpty()) return null;
-            return marinesCollection.last();
-        }
-
-        /**
-         * @param id ID of the marine.
-         * @return A marine by his ID or null if marine isn't found.
-         */
-        public SpaceMarine getById(Long id) {
-            for (SpaceMarine marine : marinesCollection) {
-                if (marine.getId().equals(id)) return marine;
+        public Person getById(Long id) {
+            for (Person person : personCollection) {
+                if (person.getId().equals(id)) return person;
             }
             return null;
         }
 
-        /**
-         * @param marineToFind A marine who's value will be found.
-         * @return A marine by his value or null if marine isn't found.
-         */
-        public SpaceMarine getByValue(SpaceMarine marineToFind) {
-            for (SpaceMarine marine : marinesCollection) {
-                if (marine.equals(marineToFind)) return marine;
+        public Person getByValue(Person personToFind) {
+            for (Person person : personCollection) {
+                if (person.equals(personToFind)) return person;
             }
             return null;
         }
 
-        /**
-         * @return Sum of all marines' health or 0 if collection is empty.
-         */
-        public double getSumOfHealth() {
+        public double getSumOfHeight() {
             double sumOfHealth = 0;
-            for (SpaceMarine marine : marinesCollection) {
-                sumOfHealth += marine.getHealth();
+            for (Person person : personCollection) {
+                sumOfHealth += person.getHeight();
             }
-            return sumOfHealth;
+            return getSumOfHeight();
         }
 
-        /**
-         * @return Marine, who has max melee weapon.
-         * @throws CollectionIsEmptyException If collection is empty.
-         */
-        public String maxByMeleeWeapon() throws CollectionIsEmptyException {
-            if (marinesCollection.isEmpty()) throw new CollectionIsEmptyException();
-
-            SpaceMarine maxMarine = getFirst();
-            for (SpaceMarine marine : marinesCollection) {
-                if (marine.getMeleeWeapon().compareTo(maxMarine.getMeleeWeapon()) > 0) {
-                    maxMarine = marine;
-                }
-            }
-            return maxMarine.toString();
-        }
 
         /**
          * @param weaponToFilter Weapon to filter by.

@@ -13,16 +13,7 @@ public class FileManager {
         this.envVariable = envVariable;
         this.file = file;
     }
-    //нужно сверить две лабы и вытащить где xml нужное и писать дальше по первой
  //   public void callCommand() throws IOException, JAXBException, ClassNotFoundException {
    //     collection = new XmlParser().parseCollection(file);
-    //    Scanner sc = new Scanner(System.in);
-     //   String commands;
-      //  System.out.println("vvedite comandy");
-       // while ((commands = sc.nextLine()) != "exit") {
-
-          //  String result = stringToObject.getObjectCommand(commands).execute(collection);
-           // System.out.println(result);
-        }
 
 
