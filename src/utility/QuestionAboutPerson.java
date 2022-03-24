@@ -4,6 +4,7 @@ import classesandenums.*;
 import exceptions.IncorrectInputInScriptException;
 import exceptions.MustBeNotEmptyException;
 import exceptions.NotInDeclaredLimitsException;
+import main.Proga;
 import progastart.Proga;
 
 import java.util.NoSuchElementException;
