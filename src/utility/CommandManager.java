@@ -181,7 +181,7 @@ import commands.Command;
          * сгруппировывает элементы коллекции по значению поля id,
          * вывести количество элементов в каждой группе
          */
-        public boolean groupCountingByI(String argument) {
+        public boolean groupCountingById(String argument) {
             return groupCountingByIdCommand.execute(argument);
         }
 

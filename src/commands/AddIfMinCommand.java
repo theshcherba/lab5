@@ -4,6 +4,7 @@ import classesandenums.Person;
 import exceptions.IncorrectInputInScriptException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 import utility.QuestionAboutPerson;
 
 import java.time.LocalDateTime;
@@ -15,7 +16,7 @@ public class AddIfMinCommand extends AbstractCommand{
     public AddIfMinCommand(CollectionManager collectionManager, QuestionAboutPerson questionAboutPerson) {
         super("add_if_min {element}", "добавить новый элемент, если его значение меньше, чем у наименьшего");
         this.collectionManager = collectionManager;
-        this.questionAboutPerson = questionAboutPerson();
+        this.questionAboutPerson = questionAboutPerson;
     }
 
 
@@ -31,12 +32,12 @@ public class AddIfMinCommand extends AbstractCommand{
                     collectionManager.generateNextId(),
                     questionAboutPerson.askName(),
                     questionAboutPerson.askCoordinates(),
-                    questionAboutPerson.askLocation(),
                     LocalDateTime.now(),
                     questionAboutPerson.askHeight(),
-                    questionAboutPerson.askHairColour(),
                     questionAboutPerson.askEyeColour(),
-                    questionAboutPerson.askNationality()
+                    questionAboutPerson.askHairColour(),
+                    questionAboutPerson.askNationality(),
+                    questionAboutPerson.askLocation()
             );
             if (collectionManager.collectionSize() == 0 || marineToAdd.compareTo(collectionManager.getFirst()) < 0) {
                 collectionManager.addToCollection(marineToAdd);
@@ -49,5 +50,5 @@ public class AddIfMinCommand extends AbstractCommand{
         return false;
     }
 }
-}
+
 
