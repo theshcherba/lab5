@@ -73,7 +73,12 @@ import java.util.NavigableSet;
                 }
                 return null;
             }
-
+            public Person getByValue(Person personToFind) {
+                for (Person person : personCollection) {
+                    if (person.equals(personToFind)) return person;
+                }
+                return null;
+            }
             /**
              * Добавляет нового персона в коллекцию.
              * Добавяет параметр персона.
@@ -144,7 +149,7 @@ import java.util.NavigableSet;
                     info += person;
                     if (person != personCollection.last()) info += "\n\n";
                 }
-
+                return info;
             }
 
     }

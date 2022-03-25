@@ -386,7 +386,33 @@ public class QuestionAboutPerson {
             }
             return nationality;
         }
-
+    public boolean askQuestion(String question) throws IncorrectInputInScriptException {
+        String finalQuestion = question + " (+/-):";
+        String answer;
+            while (true) {
+                try {
+                    Console.println(finalQuestion);
+                    Console.print(Proga.PS2);
+                    answer = userScanner.nextLine().trim();
+                    if (fileMode) Console.println(answer);
+                    if (!answer.equals("+") && !answer.equals("-")) throw new NotInDeclaredLimitsException();
+                    break;
+                }
+                catch (NoSuchElementException exception) {
+                    Console.printerror("Ответ не распознан!");
+                    if (fileMode) throw new IncorrectInputInScriptException();
+                }
+                catch (NotInDeclaredLimitsException exception) {
+                    Console.printerror("Ответ должен быть представлен знаками '+' или '-'!");
+                    if (fileMode) throw new IncorrectInputInScriptException();
+                }
+                catch (IllegalStateException exception) {
+                    Console.printerror("Непредвиденная ошибка!");
+                    System.exit(0);
+                }
+            }
+        return (answer.equals("+")) ? true : false;
+    }
         public String toString() {
             return "QuestionAboutPerson (вспомогательный класс для запросов пользователю)";
         }
