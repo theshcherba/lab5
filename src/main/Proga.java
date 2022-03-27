@@ -12,6 +12,7 @@ public class Proga {
         }catch (ArrayIndexOutOfBoundsException e){
             System.out.println("Вы не ввели путь к коллекции при запуске, используем чистую коллекцию.");
             path = "";
+            System.out.println("Hello");
         }
     }
 }
