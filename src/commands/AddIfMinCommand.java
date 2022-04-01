@@ -21,14 +21,14 @@ public class AddIfMinCommand extends AbstractCommand{
 
 
     /**
-     * Executes the command.
+     * Выполняет команду
      * @return Command exit status.
      */
     @Override
     public boolean execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-            Person marineToAdd = new Person(
+            Person personToAdd = new Person(
                     collectionManager.generateNextId(),
                     questionAboutPerson.askName(),
                     questionAboutPerson.askCoordinates(),
@@ -39,8 +39,8 @@ public class AddIfMinCommand extends AbstractCommand{
                     questionAboutPerson.askNationality(),
                     questionAboutPerson.askLocation()
             );
-            if (collectionManager.collectionSize() == 0 || marineToAdd.compareTo(collectionManager.getFirst()) < 0) {
-                collectionManager.addToCollection(marineToAdd);
+            if (collectionManager.collectionSize() == 0 || personToAdd.compareTo(collectionManager.getFirst()) < 0) {
+                collectionManager.addToCollection(personToAdd);
                 Console.println("Человек успешно добавлен!");
                 return true;
             } else Console.printerror("Значение человека больше, чем значение наименьшего из людей!");

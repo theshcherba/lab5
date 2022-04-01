@@ -20,13 +20,12 @@ public class AddCommand extends AbstractCommand{
     }
 
     /**
-     * Executes the command.
-     * @return Command exit status.
+     * Выполняет команду
+     * Возращает статус команды.
      */
-    @Override
-    public boolean execute(String argument) {
-        try {
-            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+    public boolean execute(String argument) { //throw – используется для возбуждения исключения
+        try { //определяет блок кода, в котором может произойти исключение
+            if (!argument.isEmpty()) throw new WrongAmountOfElementsException(); //если аргумент пустой, то выкинет исключение
             collectionManager.addToCollection(new Person(
                     collectionManager.generateNextId(),
                     questionAboutPerson.askName(),
@@ -40,9 +39,11 @@ public class AddCommand extends AbstractCommand{
             ));
             Console.println("Человек успешно добавлен!");
             return true;
-        } catch (WrongAmountOfElementsException exception) {
+        } //catch – определяет блок кода, в котором происходит обработка исключения
+        catch (WrongAmountOfElementsException exception) {
             Console.println("Использование: '" + getName() + "'");
-        } catch (IncorrectInputInScriptException exception) {}
+        }
+        catch (IncorrectInputInScriptException exception) {}
         return false;
     }
 }
