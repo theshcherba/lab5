@@ -1,7 +1,8 @@
 package classesandenums;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDateTime;
-
+@XmlRootElement
 public class Person implements Comparable<Person> {
     private Long id;
     private String name;
@@ -87,4 +88,39 @@ public class Person implements Comparable<Person> {
         return false;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setEyeColor(EColor eyeColor) {
+        this.eyeColor = eyeColor;
+    }
+
+    public void setHairColor(HColor hairColor) {
+        this.hairColor = hairColor;
+    }
+
+    public void setNationality(Country nationality) {
+        this.nationality = nationality;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
 }
