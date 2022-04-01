@@ -7,7 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.NavigableSet;
 
     public class CollectionManager {
-            private NavigableSet<Person> personCollection = new LinkedHashSet<>();
+            private LinkedHashSet<Person> personCollection = new LinkedHashSet<Person>();
             private LocalDateTime lastInitTime;
             private LocalDateTime lastSaveTime;
             private FileManager fileManager;
@@ -22,7 +22,7 @@ import java.util.NavigableSet;
             /**
              * возращает саму коллекцию.
              */
-            public NavigableSet<Person> getCollection() {
+            public LinkedHashSet<Person> getCollection() {
                 return personCollection;
             }
             /**

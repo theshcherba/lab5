@@ -27,7 +27,7 @@ public class Coordinates {
 
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj instanceof Coordinates) {
+        if (obj instanceof Coordinates) { // instanceof нужен, чтобы проверить, был ли объект, на который ссылается переменная obj, создан на основе класса Coordinates
             Coordinates coordinatesObj = (Coordinates) obj;
             return (x == coordinatesObj.getX()) && (y == coordinatesObj.getY());
         }
