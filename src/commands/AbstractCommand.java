@@ -1,6 +1,6 @@
 package commands;
 
-public abstract class AbstractCommand implements Command {
+public abstract class AbstractCommand implements Command { //AbstractCommand реализовывает интерфейс Command
     private String name;
     private String description;
 
@@ -28,7 +28,7 @@ public abstract class AbstractCommand implements Command {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null) return false;
-        if (getClass() != obj.getClass()) return false;
+        if (getClass() != obj.getClass()) return false; //определяет если два объекта не равны то false
         AbstractCommand other = (AbstractCommand) obj;
         return name.equals(other.name) && description.equals(other.description);
     }
