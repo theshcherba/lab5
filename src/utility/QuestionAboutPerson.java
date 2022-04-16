@@ -274,7 +274,7 @@ public class QuestionAboutPerson {
         int height;
             while (true) {
                 try {
-                    Console.println("Введите здоровье:");
+                    Console.println("Введите возраст:");
                     Console.print(Proga.PS2);
                     strHeight = userScanner.nextLine().trim();
                     if (fileMode) Console.println(strHeight);

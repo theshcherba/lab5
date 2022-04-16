@@ -70,7 +70,7 @@ import java.util.Scanner;
                             if (userCommand[1].equals(script)) throw new ScriptRecursionException();
                         }
                     }
-                    commandStatus = launchCommand(userCommand);
+                    commandStatus = (userCommand);
                 } while (commandStatus == 0 && scriptScanner.hasNextLine());
                 questionAboutPerson.setUserScanner(tmpScanner);
                 questionAboutPerson.setUserMode();
@@ -97,63 +97,6 @@ import java.util.Scanner;
          * @param userCommand Command to launch.
          * @return Exit code.
          */
-        private int launchCommand(String[] userCommand) {
-            switch (userCommand[0]) {
-                case "":
-                    break;
-                case "help":
-                    if (!commandManager.help(userCommand[1])) return 1;
-                    break;
-                case "info":
-                    if (!commandManager.info(userCommand[1])) return 1;
-                    break;
-                case "show":
-                    if (!commandManager.show(userCommand[1])) return 1;
-                    break;
-                case "add":
-                    if (!commandManager.add(userCommand[1])) return 1;
-                    break;
-                case "update":
-                    if (!commandManager.update(userCommand[1])) return 1;
-                    break;
-                case "remove_by_id":
-                    if (!commandManager.removeById(userCommand[1])) return 1;
-                    break;
-                case "clear":
-                    if (!commandManager.clear(userCommand[1])) return 1;
-                    break;
-                case "save":
-                    if (!commandManager.save(userCommand[1])) return 1;
-                    break;
-                case "execute_script":
-                    if (!commandManager.executeScript(userCommand[1])) return 1;
-                    else return scriptMode(userCommand[1]);
-                case "add_if_min":
-                    if (!commandManager.addIfMin(userCommand[1])) return 1;
-                    break;
-                case "remove_greater":
-                    if (!commandManager.removeGreater(userCommand[1])) return 1;
-                    break;
-                case "remove_lower":
-                    if (!commandManager.removeLower(userCommand[1])) return 1;
-                    break;
-                case "group_counting_by_id":
-                    if (!commandManager.groupCountingById(userCommand[1])) return 1;
-                    break;
-                case "filter_starts_with_name":
-                    if (!commandManager.filterStartsWithName(userCommand[1])) return 1;
-                    break;
-                case "print_unique_location":
-                    if (!commandManager.printUniqueLocation(userCommand[1])) return 1;
-                    break;
-                case "exit":
-                    if (!commandManager.exit(userCommand[1])) return 1;
-                    else return 2;
-                default:
-                    if (!commandManager.noSuchCommand(userCommand[0])) return 1;
-            }
-            return 0;
-        }
 
         /**
          * Prints toOut.toString() to Console
