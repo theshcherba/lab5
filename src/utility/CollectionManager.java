@@ -1,15 +1,13 @@
 package utility;
 
-import classesandenums.Location;
 import classesandenums.Person;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.NavigableSet;
 
-public class CollectionManager {
-            static private LinkedHashSet<Person> personCollection = new LinkedHashSet<>();
+    public class CollectionManager {
+            private LinkedHashSet<Person> personCollection = new LinkedHashSet<Person>();
             private LocalDateTime lastInitTime;
             private LocalDateTime lastSaveTime;
             private FileManager fileManager;
@@ -21,23 +19,6 @@ public class CollectionManager {
 
                 loadCollection();//Загружает коллекцию из файла
             }
-
-            public LinkedHashSet<Location> findUniqueLocation() {
-                Iterator<Person> iterator = personCollection.iterator();
-                LinkedHashSet<Location> uniqueLocations = null;
-                while (iterator.hasNext()) {
-                    Person person = iterator.next();
-                     uniqueLocations = new LinkedHashSet<>();
-                    uniqueLocations.add(person.getLocation());
-                }
-                return uniqueLocations;
-            }
-             public Object[] LinkedHashSetToArrayList(){
-                Object[] people = personCollection.toArray();
-
-                return people;
-            }
-
             /**
              * возращает саму коллекцию.
              */
@@ -73,17 +54,14 @@ public class CollectionManager {
              */
             public Person getFirst() {
                 if (personCollection.isEmpty()) return null;
-                ArrayList<Person> personArrayList = LinkedHashSetToArrayList();
-                return personArrayList.;
+                return personCollection.first();
             }
             /**
              * возращает последний элемент коллекции или null, если коллекция пуста.
              */
             public Person getLast() {
                 if (personCollection.isEmpty()) return null;
-                Object[] people = personCollection.toArray();
-                Person person = (Person) people[people.length-1];
-                return person;
+                return personCollection.last();
             }
             /**
              * параметр id персона.
@@ -173,6 +151,5 @@ public class CollectionManager {
                 }
                 return info;
             }
-
 
     }
