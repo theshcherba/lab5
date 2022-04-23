@@ -60,7 +60,7 @@ public class FromXml {
             return;
         }
 
-        NodeList collection = doc.getElementsByTagName(TAG_ELEMENT);
+        NodeList collection = doc.get //getElementsByTagName(TAG_ELEMENT);
 
         for (int i = 0; i < collection.getLength(); i++) {
             if (collection.item(i).getNodeType() != Node.ELEMENT_NODE) {
