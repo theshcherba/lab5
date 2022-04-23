@@ -11,17 +11,20 @@ import java.util.LinkedHashSet;
 import java.util.LinkedList;
 
 public class FromXml {
+    private static final String TAG_ID = "id";
     private static final String TAG_NAME = "name";
     private static final String TAG_COORDINATE_X = "coordinate_x";
     private static final String TAG_COORDINATE_Y = "coordinate_y";
-    private static final String TAG_REAL_HERO = "real_hero";
-    private static final String TAG_HAS_TOOTHPICK = "has_toothpick";
-    private static final String TAG_IMPACT_SPEED = "impact_speed";
-    private static final String TAG_SOUNDTRACK_NAME = "soundtrack_name";
-    private static final String TAG_MINUTES_OF_WAITING = "minutes_of_waiting";
-    private static final String TAG_WEAPON_TYPE = "weapon_type";
-    private static final String TAG_CAR = "car";
-    private static final String TAG_ELEMENT = "element";
+    private static final String TAG_CREATION_DATE = "creation_date";
+    private static final String TAG_HEIGHT = "height";
+    private static final String TAG_EYE_COLOR = "eye_color";
+    private static final String TAG_HAIR_COLOR = "hair_color";
+    private static final String TAG_NATIONALITY = "nationality";
+    private static final String TAG_LOCATION_X = "location_x";
+    private static final String TAG_LOCATION_Y = "location_y";
+    private static final String TAG_LOCATION_Z = "location_z";
+    private static final String TAG_LOCATION_NAME = "location_name";
+    private static final String TAG_COLLECTION = "collection";
 
     static LinkedHashSet<Person> collectionList = new LinkedHashSet<>();
 //    private Long id = 1L;
