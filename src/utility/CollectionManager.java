@@ -4,10 +4,9 @@ import classesandenums.Person;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
-import java.util.NavigableSet;
 
     public class CollectionManager {
-            private LinkedHashSet<Person> personCollection = new LinkedHashSet<Person>();
+            private LinkedHashSet<Person> personCollection = new LinkedHashSet<>();
             private LocalDateTime lastInitTime;
             private LocalDateTime lastSaveTime;
             private FileManager fileManager;

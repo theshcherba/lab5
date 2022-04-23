@@ -19,12 +19,6 @@ public class AddIfMinCommand extends AbstractCommand{
         this.questionAboutPerson = questionAboutPerson;
     }
 
-
-    /**
-     * Выполняет команду
-     * @return Command exit status.
-     */
-    @Override
     public boolean execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
