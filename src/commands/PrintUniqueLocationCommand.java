@@ -2,6 +2,7 @@ package commands;
 
 import exceptions.CollectionIsEmptyException;
 import utility.CollectionManager;
+import utility.Console;
 import utility.QuestionAboutPerson;
 
 public class PrintUniqueLocationCommand extends AbstractCommand {
@@ -19,8 +20,10 @@ public class PrintUniqueLocationCommand extends AbstractCommand {
        try{
            if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
 
+collectionManager.getArrayOfUniqueLocation();
        } catch (CollectionIsEmptyException e) {
-           e.printStackTrace();
+           Console.printerror("Коллекция пуста!");
        }
+       return true;
     }
 }

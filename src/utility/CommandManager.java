@@ -27,7 +27,7 @@ public class CommandManager {
         commands.put("add_if_min", new AddIfMinCommand(collectionManager, questionAboutPerson));
         commands.put("remove_greater", new RemoveGreaterCommand(collectionManager, questionAboutPerson));
         commands.put("group_counting_by_id", new GroupCountingByIdCommand(collectionManager));
-        commands.put("filter_starts_with_name", new FilterStartsWithNameCommand());
+        commands.put("filter_starts_with_name", new FilterStartsWithNameCommand(collectionManager, questionAboutPerson));
         commands.put("print_unique_location", new PrintUniqueLocationCommand(collectionManager, questionAboutPerson));
         commands.put("exit", new ExitCommand());
     }

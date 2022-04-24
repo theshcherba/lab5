@@ -1,11 +1,14 @@
 package utility;
 
+import classesandenums.Location;
 import classesandenums.Person;
 import utility.parser.FromXml;
 import utility.parser.ToXml;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class CollectionManager {
     private LinkedHashSet<Person> personCollection = new LinkedHashSet<>();
@@ -32,6 +35,36 @@ public class CollectionManager {
             arrayPeople[i] = (Person) arrayObjectPeople[i];
         }
         return arrayPeople;
+    }
+
+    public Location[] getArrayOfUniqueLocation() {
+        Person[] arrayPeople = collectionToArray();
+        Set<Location> locationsSet = new HashSet<>();
+        for (int i = 0; i < arrayPeople.length; i++) {
+            locationsSet.add(arrayPeople[i].getLocation());
+        }
+        Object[] locArray = locationsSet.toArray();
+        Location[] locations = new Location[locArray.length];
+        for (int j = 0; j < locArray.length; j++) {
+            locations[j] = (Location) locArray[j];
+        }
+        return locations;
+    }
+
+    public Person[] filterStartsWithName(String substring) {
+        Person[] arrayPeople = collectionToArray();
+        Set<Person> selectedPeopleList = new HashSet<>();
+        for (int i = 0; i < arrayPeople.length; i++) {
+            if (arrayPeople[i].getName().substring(1, substring.length() - 1).equals(substring)) {
+                selectedPeopleList.add(arrayPeople[i]);
+            }
+        }
+        Person[] selectedPeopleArray = new Person[selectedPeopleList.size()];
+        Object[] selectedObjects = selectedPeopleList.toArray();
+        for (int k = 0; k < selectedObjects.length; k++) {
+            selectedPeopleArray[k] = (Person) selectedObjects[k];
+        }
+        return selectedPeopleArray;
     }
 
     /**
