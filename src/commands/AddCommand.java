@@ -19,10 +19,6 @@ public class AddCommand extends AbstractCommand{
         this.questionAboutPerson = questionAboutPerson;
     }
 
-    /**
-     * Выполняет команду
-     * Возращает статус команды.
-     */
     public boolean execute(String argument) { //throw – используется для возбуждения исключения
         try { //определяет блок кода, в котором может произойти исключение
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException(); //если аргумент пустой, то выкинет исключение
@@ -40,10 +36,10 @@ public class AddCommand extends AbstractCommand{
             Console.println("Человек успешно добавлен!");
             return true;
         } //catch – определяет блок кода, в котором происходит обработка исключения
-        catch (WrongAmountOfElementsException exception) {
+        catch (WrongAmountOfElementsException exception) { //неправильное количество элементов
             Console.println("Использование: '" + getName() + "'");
         }
-        catch (IncorrectInputInScriptException exception) {}
+        catch (IncorrectInputInScriptException exception) {}//неправильный ввод в скрипте
         return false;
     }
 }

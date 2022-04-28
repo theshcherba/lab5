@@ -66,7 +66,20 @@ public class CollectionManager {
         }
         return selectedPeopleArray;
     }
+    public void groupCountingById() {
+        Person[] arrayPeople = collectionToArray();
+        Set<Integer> selectedIdList = new HashSet<>();
+        for (int i = 0; i <arrayPeople.length ; i++) {
+          if (arrayPeople[i].getId() % 2 == 0){
+              Integer id = Math.toIntExact(arrayPeople[i].getId());
+              selectedIdList.add(id);
+              Integer count = selectedIdList.size();
+              Integer idLeft = arrayPeople.length-count;
+              System.out.println("Количество id, делящихся на 2: " + count + ". " + "Количество оставшихся id: " + idLeft + ".");
+          };
 
+        }
+    }
     /**
      * возращает саму коллекцию.
      */

@@ -1,15 +1,9 @@
 package commands;
 
-import classesandenums.Person;
-import exceptions.CollectionIsEmptyException;
-import exceptions.IncorrectInputInScriptException;
-import exceptions.PersonNotFoundException;
 import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.Console;
-import utility.QuestionAboutPerson;
 
-import java.time.LocalDateTime;
 
 public class GroupCountingByIdCommand extends AbstractCommand {
     private CollectionManager collectionManager;
@@ -21,7 +15,7 @@ public GroupCountingByIdCommand(CollectionManager collectionManager){
     public boolean execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-collectionManager.filterStartsWithName(argument);
+collectionManager.groupCountingById();
 return true;
         } catch (WrongAmountOfElementsException exception) {
             Console.println("Использование: '" + getName() + "'");

@@ -1,6 +1,8 @@
 package commands;
 
+import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
+import utility.Console;
 import utility.QuestionAboutPerson;
 
 public class FilterStartsWithNameCommand extends AbstractCommand{
@@ -14,7 +16,14 @@ private QuestionAboutPerson questionAboutPerson;
     }
 
     public boolean execute(String argument) {
-
+        try {
+            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+            collectionManager.filterStartsWithName(argument);
+            return true;
+        } catch (WrongAmountOfElementsException exception) {
+            Console.println("Использование: '" + getName() + "'");
+        }
         return false;
+
     }
 }
