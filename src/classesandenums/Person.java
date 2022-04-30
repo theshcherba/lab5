@@ -1,8 +1,6 @@
 package classesandenums;
-
-import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDateTime;
-@XmlRootElement
+
 public class Person implements Comparable<Person> {
     private Long id;
     private String name;

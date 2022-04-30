@@ -11,13 +11,12 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class CollectionManager {
-    private LinkedHashSet<Person> personCollection = new LinkedHashSet<>();
+    private static LinkedHashSet<Person> personCollection = new LinkedHashSet<>();
     private LocalDateTime lastInitTime;
     private LocalDateTime lastSaveTime;
     private ToXml toXml;
     private FromXml fromXml;
     private String pathFile;
-
 
     public CollectionManager(String pathFile) {
         this.lastInitTime = null;
@@ -207,7 +206,7 @@ public class CollectionManager {
      * Сохраняет коллекцию в файл.
      */
     public void saveCollection() {
-        toXml.writeCollection(personCollection, pathFile);
+        toXml.parseToXml(personCollection, pathFile);
         lastSaveTime = LocalDateTime.now();
     }
 
