@@ -1,9 +1,6 @@
 package utility;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
 import commands.*;
 
 /**
@@ -44,14 +41,14 @@ public class CommandManager {
         return commands;
     }
 
-    /**
-     * Показывает, что команда не найдена.
-     * Возращает состояние(статус) команды.
-     */
-    public boolean noSuchCommand(String command) {
-        Console.println("Команда '" + command + "' не найдена. Напишите 'help', чтобы узнать какие команды есть в этой программе.");
-        return false;
-    }
+//    /**
+//     * Показывает, что команда не найдена.
+//     * Возращает состояние(статус) команды.
+//     */
+//    public boolean noSuchCommand(String command) {
+//        Console.println("Команда '" + command + "' не найдена. Напишите 'help', чтобы узнать какие команды есть в этой программе.");
+//        return false;
+//    }
 
 //    /**
 //     * Выводит описание по доступным командам.

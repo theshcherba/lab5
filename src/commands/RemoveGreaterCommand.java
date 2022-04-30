@@ -21,10 +21,7 @@ public class RemoveGreaterCommand extends AbstractCommand{
         this.questionAboutPerson = questionAboutPerson;
     }
 
-    /**
-     * Executes the command.
-     * @return Command exit status.
-     */
+
     public boolean execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();

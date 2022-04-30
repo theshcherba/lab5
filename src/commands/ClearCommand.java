@@ -12,11 +12,6 @@ public class ClearCommand extends AbstractCommand{
       this.collectionManager = collectionManager;
    }
 
-   /**
-    * Executes the command.
-    * @return Command exit status.
-    */
-   @Override
    public boolean execute(String argument) {
       try {
          if (!argument.isEmpty()) throw new WrongAmountOfElementsException();

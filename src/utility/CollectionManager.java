@@ -36,6 +36,9 @@ public class CollectionManager {
         }
         return arrayPeople;
     }
+//    public void personCollection(LinkedHashSet<Person> readCollection) {
+//        collection.addAll(collectionFromFile);
+//    }
 
     public Location[] getArrayOfUniqueLocation() {
         Person[] arrayPeople = collectionToArray();
@@ -55,7 +58,7 @@ public class CollectionManager {
         Person[] arrayPeople = collectionToArray();
         Set<Person> selectedPeopleList = new HashSet<>();
         for (int i = 0; i < arrayPeople.length; i++) {
-            if (arrayPeople[i].getName().substring(1, substring.length() - 1).equals(substring)) {
+            if (arrayPeople[i].getName().substring(0, substring.length()+1).equals(substring)) {
                 selectedPeopleList.add(arrayPeople[i]);
             }
         }
@@ -76,16 +79,16 @@ public class CollectionManager {
               Integer count = selectedIdList.size();
               Integer idLeft = arrayPeople.length-count;
               System.out.println("Количество id, делящихся на 2: " + count + ". " + "Количество оставшихся id: " + idLeft + ".");
-          };
+          }
 
         }
     }
-    /**
-     * возращает саму коллекцию.
-     */
-    public LinkedHashSet<Person> getCollection() {
-        return personCollection;
-    }
+//    /**
+//     * возращает саму коллекцию.
+//     */
+//    public LinkedHashSet<Person> getCollection() {
+//        return personCollection;
+//    }
 
     /**
      * возращает время последней инициализации или null, если инициализации не было.
@@ -124,14 +127,14 @@ public class CollectionManager {
         return people[0];
     }
 
-    /**
-     * возращает последний элемент коллекции или null, если коллекция пуста.
-     */
-    public Person getLast() {
-        if (personCollection.isEmpty()) return null;
-        Person[] people = collectionToArray();
-        return people[people.length - 1];
-    }
+//    /**
+//     * возращает последний элемент коллекции или null, если коллекция пуста.
+//     */
+//    public Person getLast() {
+//        if (personCollection.isEmpty()) return null;
+//        Person[] people = collectionToArray();
+//        return people[people.length - 1];
+//    }
 
     /**
      * параметр id персона.

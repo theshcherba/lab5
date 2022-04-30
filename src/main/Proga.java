@@ -16,14 +16,14 @@ public class Proga {
     public static void main(String[] args){//throws JAXBException {
         Scanner userScanner = new Scanner(System.in);
         QuestionAboutPerson questionAboutPerson = new QuestionAboutPerson(userScanner);
-
-        CollectionManager collectionManager = new CollectionManager();
+        String pathFile = new ;
+        CollectionManager collectionManager = new CollectionManager(pathFile);
         CommandManager commandManager = new CommandManager(collectionManager,questionAboutPerson);
 
         if (args.length > 0) {
             FromXml parserFromXml = new FromXml();
             parserFromXml.parser();
-            collectionManager.Collections(FromXml.getCollection());
+            collectionManager.personCollection(FromXml.readCollection());
         }
 
         Scanner input = new Scanner(System.in);
