@@ -71,10 +71,10 @@ public class CollectionManager {
     }
     public void groupCountingById() {
         Person[] arrayPeople = collectionToArray();
-        Set<Integer> selectedIdList = new HashSet<>();
+        Set<Long> selectedIdList = new HashSet<>();
         for (int i = 0; i <arrayPeople.length ; i++) {
           if (arrayPeople[i].getId() % 2 == 0){
-              Integer id = Math.toIntExact(arrayPeople[i].getId());
+              Long id = arrayPeople[i].getId();
               selectedIdList.add(id);
               Integer count = selectedIdList.size();
               Integer idLeft = arrayPeople.length-count;
