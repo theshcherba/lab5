@@ -45,7 +45,7 @@ public class FromXml{
 
     // создаем из узла документа объект Person
     private static Person getPerson(Node node) {
-        Person person = new Person(0L, "name", new Coordinates(0, 0L), 10, EColor.BLUE, HColor.BLACK, Country.RUSSIA, new Location(0.0, 0, 0L, "none"));
+        Person person = new Person(0L, "name", new Coordinates(0, 0L), , EColor.BLUE, HColor.BLACK, Country.RUSSIA, new Location(0.0, 0, 0L, "none"));
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             Element element = (Element) node;
             person.setName(getTagValue(TAG_NAME, element));

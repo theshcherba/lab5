@@ -13,7 +13,7 @@ public class Proga {
     public static void main(String[] args){//throws JAXBException {
         Scanner userScanner = new Scanner(System.in);
         QuestionAboutPerson questionAboutPerson = new QuestionAboutPerson(userScanner);
-        String pathFile = args[0];
+        String pathFile = System.getenv("laba");
         CollectionManager collectionManager = new CollectionManager(pathFile);
         CommandManager commandManager = new CommandManager(collectionManager,questionAboutPerson);
 
@@ -28,7 +28,7 @@ public class Proga {
         while (true) {
             System.out.println("Введите команду");
             String commandName = input.nextLine();
-            commandManager.execute(commandName);
+//            commandManager.execute(commandName);
         }
     }
 
@@ -36,5 +36,4 @@ public class Proga {
 
 
 
-    }
 }

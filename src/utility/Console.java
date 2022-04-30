@@ -34,7 +34,7 @@ import java.util.Scanner;
                     Console.print(Proga.PS1);
                     userCommand = (userScanner.nextLine().trim() + " ").split(" ", 2);
                     userCommand[1] = userCommand[1].trim();
-                    commandStatus = launchCommand(userCommand);
+                    commandStatus = 6;
                 } while (commandStatus != 2);
             } catch (NoSuchElementException exception) {
                 Console.printerror("Пользовательский ввод не обнаружен!");
@@ -70,7 +70,7 @@ import java.util.Scanner;
                             if (userCommand[1].equals(script)) throw new ScriptRecursionException();
                         }
                     }
-                    commandStatus = (userCommand);
+                    commandStatus = 0;
                 } while (commandStatus == 0 && scriptScanner.hasNextLine());
                 questionAboutPerson.setUserScanner(tmpScanner);
                 questionAboutPerson.setUserMode();
