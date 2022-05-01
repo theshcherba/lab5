@@ -34,9 +34,7 @@ public class CommandManager {
         command.execute(arguments);
     }
 
-    /**
-     * @возвращает список команд менеджера.
-     */
+
     public HashMap<String, Command> getCommands() {
         return commands;
     }

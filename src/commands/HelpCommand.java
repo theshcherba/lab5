@@ -8,11 +8,7 @@ public class HelpCommand extends AbstractCommand{
         super("help", "вывести справку по доступным командам");
     }
 
-    /**
-     * Executes the command.
-     * @return Command exit status.
-     */
-    @Override
+
     public boolean execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongAmountOfElementsException();

@@ -21,29 +21,30 @@ public class QuestionAboutPerson {
         this.userScanner = userScanner;
         fileMode = false;
     }
-    public void setUserScanner(Scanner userScanner) {
-        this.userScanner = userScanner;
-    }
-    /**
-     * @return Scanner, which uses for user input.
-     */
-    public Scanner getUserScanner() {
-        return userScanner;
-    }
+//    public void setUserScanner(Scanner userScanner) {
+//        this.userScanner = userScanner;
+//    }
+//    /**
+//     * @return Scanner, which uses for user input.
+//     */
+//    public Scanner getUserScanner() {
+//        return userScanner;
+//    }
+//
+//    /**
+//     * Sets marine asker mode to 'File Mode'.
+//     */
+//    public void setFileMode() {
+//        fileMode = true;
+//    }
+//
+//    /**
+//     * Sets marine asker mode to 'User Mode'.
+//     */
+//    public void setUserMode() {
+//        fileMode = false;
+//    }
 
-    /**
-     * Sets marine asker mode to 'File Mode'.
-     */
-    public void setFileMode() {
-        fileMode = true;
-    }
-
-    /**
-     * Sets marine asker mode to 'User Mode'.
-     */
-    public void setUserMode() {
-        fileMode = false;
-    }
     public String askName() throws IncorrectInputInScriptException {
         String name;
             while (true) {
@@ -170,11 +171,7 @@ public class QuestionAboutPerson {
         return x;
     }
 
-    /**
-     * Asks a user the marine's Y coordinate.
-     * @return Marine's Y coordinate.
-     * @throws IncorrectInputInScriptException If script is running and something goes wrong.
-     */
+
     public double askLY() throws IncorrectInputInScriptException {
         String strY;
         double y;
