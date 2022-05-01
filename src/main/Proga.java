@@ -28,7 +28,7 @@ public class Proga {
         while (true) {
             System.out.println("Введите команду");
             String commandName = input.nextLine();
-//            commandManager.execute(commandName);
+            commandManager.execute(commandName,pathFile);
         }
     }
 
