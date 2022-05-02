@@ -9,7 +9,7 @@ import utility.QuestionAboutPerson;
 
 import java.time.LocalDateTime;
 
-public class AddCommand extends AbstractCommand{
+public class AddCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private QuestionAboutPerson questionAboutPerson;
 
@@ -21,7 +21,8 @@ public class AddCommand extends AbstractCommand{
 
     public boolean execute(String argument) { //throw – используется для возбуждения исключения
         try { //определяет блок кода, в котором может произойти исключение
-            if (!argument.isEmpty()) throw new WrongAmountOfElementsException(); //если аргумент пустой, то выкинет исключение
+            if (argument.isEmpty())
+                throw new WrongAmountOfElementsException(); //если аргумент пустой, то выкинет исключение
             collectionManager.addToCollection(new Person(
                     collectionManager.generateNextId(),
                     questionAboutPerson.askName(),
@@ -38,8 +39,9 @@ public class AddCommand extends AbstractCommand{
         } //catch – определяет блок кода, в котором происходит обработка исключения
         catch (WrongAmountOfElementsException exception) { //неправильное количество элементов
             Console.println("Использование: '" + getName() + "'");
-        }
-        catch (IncorrectInputInScriptException exception) {}//неправильный ввод в скрипте
+        } catch (IncorrectInputInScriptException exception) {
+            // TODO: add smth
+        }//неправильный ввод в скрипте
         return false;
     }
 }

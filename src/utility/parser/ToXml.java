@@ -12,6 +12,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.StringWriter;
 import java.util.LinkedHashSet;
 
 
@@ -31,7 +32,8 @@ public class ToXml {
     private static final String TAG_LOCATION_NAME = "location_name";
     private static final String TAG_COLLECTION = "people";
     private static final String TAG_ELEMENT = "person";
-    public void parseToXml(LinkedHashSet<Person> collection, String pathFile) {
+
+    public String parseToXml(LinkedHashSet<Person> collection, String pathFile) {
 
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -80,7 +82,7 @@ public class ToXml {
 
                 Element elementNationality = document.createElement(TAG_NATIONALITY);
                 elementNationality.appendChild(document.createTextNode(String.valueOf(arrayPeople[i].getNationality())));
-                elementPERSON.appendChild(elementHairColor);
+                elementPERSON.appendChild(elementNationality);
 
                 Element elementLocationX = document.createElement(TAG_LOCATION_X);
                 elementLocationX.appendChild(document.createTextNode(String.valueOf(arrayPeople[i].getLocation().getX())));
@@ -98,23 +100,25 @@ public class ToXml {
                 elementLocationName.appendChild(document.createTextNode(String.valueOf(arrayPeople[i].getLocation().getName())));
                 elementPERSON.appendChild(elementLocationName);
 
+                Element elementCreationDate = document.createElement(TAG_CREATION_DATE);
+                elementCreationDate.appendChild(document.createTextNode(String.valueOf(arrayPeople[i].getCreationDate())));
+                elementPERSON.appendChild(elementCreationDate);
+
             }
             File file = new File(pathFile);
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.transform(new DOMSource(document), new StreamResult(file));
+            StringWriter writer = new StringWriter();
+            transformer.transform(new DOMSource(document), new StreamResult(writer));
+            String output = writer.getBuffer().toString().replaceAll("\n|\r", "");
 
-
+            return output;
         }
         catch (ParserConfigurationException | TransformerException e) {
             System.out.println(e.getMessage());
         }
-
+//        TODO: replace the value
+        return null;
     }
-//    public void AddElementToXml(Element elementPERSON, String AddingElementTag, Document document){
-//        Element element = document.createElement(AddingElementTag);
-//        element.appendChild(document.createTextNode(String.valueOf(arrayPeople[i].getLocation().getName())));
-//        elementPERSON.appendChild(element);
-//
-//    }
+
 }
