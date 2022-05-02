@@ -10,17 +10,18 @@ import java.util.Scanner;
 public class Proga {
     public static final String PS1 = "$ ";
     public static final String PS2 = "> ";
-    public static void main(String[] args){//throws JAXBException {
+
+    public static void main(String[] args) {
         Scanner userScanner = new Scanner(System.in);
         QuestionAboutPerson questionAboutPerson = new QuestionAboutPerson(userScanner);
         String pathFile = System.getenv("laba_path");
         CollectionManager collectionManager = new CollectionManager(pathFile);
-        CommandManager commandManager = new CommandManager(collectionManager,questionAboutPerson);
+        CommandManager commandManager = new CommandManager(collectionManager, questionAboutPerson);
 
-        if (args.length > 0) {
+        if (pathFile.length() > 0) {
             FromXml parserFromXml = new FromXml();
-            parserFromXml.parse();
-            
+            parserFromXml.parse(pathFile);
+
         }
 
         Scanner input = new Scanner(System.in);
@@ -28,12 +29,9 @@ public class Proga {
         while (true) {
             System.out.println("Введите команду");
             String commandName = input.nextLine();
-            commandManager.execute(commandName,pathFile);
+            commandManager.execute(commandName, pathFile);
         }
     }
-
-
-
 
 
 }

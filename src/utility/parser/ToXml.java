@@ -109,5 +109,12 @@ public class ToXml {
         catch (ParserConfigurationException | TransformerException e) {
             System.out.println(e.getMessage());
         }
+
     }
+//    public void AddElementToXml(Element elementPERSON, String AddingElementTag, Document document){
+//        Element element = document.createElement(AddingElementTag);
+//        element.appendChild(document.createTextNode(String.valueOf(arrayPeople[i].getLocation().getName())));
+//        elementPERSON.appendChild(element);
+//
+//    }
 }

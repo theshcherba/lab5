@@ -98,7 +98,7 @@ import java.util.Scanner;
 
 
         public static void printerror(Object toOut) {
-            System.out.println("error: " + toOut);
+            System.err.println("error: " + toOut);
         }
 
 
