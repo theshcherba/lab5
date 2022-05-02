@@ -5,6 +5,7 @@ import utility.CommandManager;
 import utility.QuestionAboutPerson;
 import utility.parser.FromXml;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Proga {
@@ -18,10 +19,14 @@ public class Proga {
         CollectionManager collectionManager = new CollectionManager(pathFile);
         CommandManager commandManager = new CommandManager(collectionManager, questionAboutPerson);
 
-        if (pathFile.length() > 0) {
-            FromXml parserFromXml = new FromXml();
-            parserFromXml.parse(pathFile);
-
+        try {
+            if (pathFile.length() > 0) {
+                FromXml parserFromXml = new FromXml();
+                parserFromXml.parse(pathFile);
+            }
+        } catch (NullPointerException exception) {
+            System.out.println("File not found");
+            return;
         }
 
         Scanner input = new Scanner(System.in);
@@ -31,7 +36,7 @@ public class Proga {
             String commandName = input.nextLine();
             commandManager.execute(commandName, pathFile);
         }
-    }
 
+    }
 
 }

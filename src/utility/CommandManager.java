@@ -1,6 +1,7 @@
 package utility;
 
 import java.util.HashMap;
+
 import commands.*;
 
 /**
@@ -30,8 +31,13 @@ public class CommandManager {
     }
 
     public void execute(String commandName, String arguments) {
-        Command command = commands.get(commandName);
-        command.execute(arguments);
+
+        try {
+            Command command = commands.get(commandName);
+            command.execute(arguments);
+        } catch (NullPointerException exp) {
+            System.out.println("Command [" + commandName + "]" + "not found ");
+        }
     }
 
 

@@ -5,6 +5,8 @@ import classesandenums.Person;
 import utility.parser.FromXml;
 import utility.parser.ToXml;
 
+import javax.xml.transform.stream.StreamResult;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -14,14 +16,14 @@ public class CollectionManager {
     private static LinkedHashSet<Person> personCollection = new LinkedHashSet<>();
     private LocalDateTime lastInitTime;
     private LocalDateTime lastSaveTime;
-    private ToXml toXml;
+    private final ToXml toXml;
     private FromXml fromXml;
     private String pathFile;
 
     public CollectionManager(String pathFile) {
         this.lastInitTime = null;
         this.lastSaveTime = null;
-        this.toXml = null;
+        this.toXml = new ToXml();
         this.fromXml = null;
         this.pathFile = pathFile;
         loadCollection();//Загружает коллекцию из файла
@@ -57,7 +59,7 @@ public class CollectionManager {
         Person[] arrayPeople = collectionToArray();
         Set<Person> selectedPeopleList = new HashSet<>();
         for (int i = 0; i < arrayPeople.length; i++) {
-            if (arrayPeople[i].getName().substring(0, substring.length()+1).equals(substring)) {
+            if (arrayPeople[i].getName().substring(0, substring.length() + 1).equals(substring)) {
                 selectedPeopleList.add(arrayPeople[i]);
             }
         }
@@ -68,17 +70,18 @@ public class CollectionManager {
         }
         return selectedPeopleArray;
     }
+
     public void groupCountingById() {
         Person[] arrayPeople = collectionToArray();
         Set<Long> selectedIdList = new HashSet<>();
-        for (int i = 0; i <arrayPeople.length ; i++) {
-          if (arrayPeople[i].getId() % 2 == 0){
-              Long id = arrayPeople[i].getId();
-              selectedIdList.add(id);
-              Integer count = selectedIdList.size();
-              Integer idLeft = arrayPeople.length-count;
-              System.out.println("Количество id, делящихся на 2: " + count + ". " + "Количество оставшихся id: " + idLeft + ".");
-          }
+        for (int i = 0; i < arrayPeople.length; i++) {
+            if (arrayPeople[i].getId() % 2 == 0) {
+                Long id = arrayPeople[i].getId();
+                selectedIdList.add(id);
+                Integer count = selectedIdList.size();
+                Integer idLeft = arrayPeople.length - count;
+                System.out.println("Количество id, делящихся на 2: " + count + ". " + "Количество оставшихся id: " + idLeft + ".");
+            }
 
         }
     }
@@ -206,8 +209,22 @@ public class CollectionManager {
      * Сохраняет коллекцию в файл.
      */
     public void saveCollection() {
-        toXml.parseToXml(personCollection, pathFile);
-        lastSaveTime = LocalDateTime.now();
+        String xml = toXml.parseToXml(personCollection, pathFile);
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(pathFile));
+            try {
+                outputStreamWriter.write(xml);
+            } catch (IOException e) {
+                // TODO: change the logic
+                e.printStackTrace();
+            } finally {
+                outputStreamWriter.flush();
+                outputStreamWriter.close();
+                lastSaveTime = LocalDateTime.now();
+            }
+        } catch (Exception exception) {
+            System.out.println(exception);
+        }
     }
 
     /**

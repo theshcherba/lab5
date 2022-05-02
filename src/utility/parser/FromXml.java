@@ -72,9 +72,16 @@ public class FromXml {
 
     // получаем значение элемента по указанному тегу
     private static String getTagValue(String tag, Element element) {
-        NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
-        Node node = nodeList.item(0);
-        return node.getNodeValue();
+        try {
+            NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes();
+            Node node = nodeList.item(0);
+            return node.getNodeValue();
+        } catch (NullPointerException exp) {
+            System.out.println(exp);
+        }
+//        TODO:
+//        throw UnableToGetTagValue()
+        return "";
     }
 
     public static LinkedHashSet<Person> readCollection() {
