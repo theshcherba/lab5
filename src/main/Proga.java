@@ -13,7 +13,7 @@ public class Proga {
     public static void main(String[] args){//throws JAXBException {
         Scanner userScanner = new Scanner(System.in);
         QuestionAboutPerson questionAboutPerson = new QuestionAboutPerson(userScanner);
-        String pathFile = System.getenv("laba");
+        String pathFile = System.getenv("laba_path");
         CollectionManager collectionManager = new CollectionManager(pathFile);
         CommandManager commandManager = new CommandManager(collectionManager,questionAboutPerson);
 

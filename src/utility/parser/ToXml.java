@@ -12,9 +12,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
-import java.io.OutputStreamWriter;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
+
 
 public class ToXml {
     private static final String TAG_ID = "id";
@@ -103,7 +102,6 @@ public class ToXml {
             File file = new File(pathFile);
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            //OutputStreamWriter writer = new OutputStreamWriter();
             transformer.transform(new DOMSource(document), new StreamResult(file));
 
 
