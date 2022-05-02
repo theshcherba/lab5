@@ -1,4 +1,4 @@
-package utility.parser;
+/*package utility.parser;
 
 import classesandenums.Coordinates;
 
@@ -44,3 +44,6 @@ public class Validator {
         return 0;
     }
 }
+
+
+ */
