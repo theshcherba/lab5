@@ -266,7 +266,7 @@ public class QuestionAboutPerson {
                 Console.printerror("Рост должен быть больше нуля!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NumberFormatException exception) {
-                Console.printerror("Здоровье должно быть представлено числом!");
+                Console.printerror("Рост должно быть представлено числом!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NullPointerException | IllegalStateException exception) {
                 Console.printerror("Непредвиденная ошибка!");
