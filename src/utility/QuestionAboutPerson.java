@@ -270,16 +270,27 @@ public class QuestionAboutPerson {
     }
 
     public HColor askHairColour() throws IncorrectInputInScriptException {
-        String strHairColor;
+        String numberOfChoice;
+        String strHairColor = "";
         HColor hairColor;
         while (true) {
             try {
                 Console.println("Список цвета волос- " + HColor.nameList());
-                Console.println("Введите цвет волос:");
+                Console.println("Введите цвет волос (GREEN - 1, BLACK - 2, YELLOW - 3, WHITE -4): ");
                 Console.print(Proga.PS2);
-                strHairColor = userScanner.nextLine().trim();
+                numberOfChoice = userScanner.nextLine().trim();
+                switch (numberOfChoice){
+                    case "1": strHairColor="GREEN";
+                    break;
+                    case "2": strHairColor="BLACK";
+                    break;
+                    case "3": strHairColor="YELLOW";
+                    break;
+                    case "4": strHairColor="WHITE";
+                    break;
+                }
                 if (fileMode) Console.println(strHairColor);
-                hairColor = HColor.valueOf(strHairColor.toUpperCase());
+                hairColor = HColor.valueOf(strHairColor);
                 break;
             } catch (NoSuchElementException exception) {
                 Console.printerror("Цвет волос не распознан!");
@@ -296,14 +307,25 @@ public class QuestionAboutPerson {
     }
 
     public EColor askEyeColour() throws IncorrectInputInScriptException {
-        String strEyeColor;
+        String numberOfChoice;
+        String strEyeColor = "";
         EColor eyeColor;
         while (true) {
             try {
                 Console.println("Список цвета глаз- " + EColor.nameList());
-                Console.println("Введите цвет глаз:");
+                Console.println("Введите цвет глаз (GREEN - 1, BLUE - 2, ORANGE - 3, WHITE -4):");
                 Console.print(Proga.PS2);
-                strEyeColor = userScanner.nextLine().trim();
+                numberOfChoice = userScanner.nextLine().trim();
+                switch (numberOfChoice){
+                    case "1": strEyeColor="GREEN";
+                        break;
+                    case "2": strEyeColor="BLUE";
+                        break;
+                    case "3": strEyeColor="ORANGE";
+                        break;
+                    case "4": strEyeColor="WHITE";
+                        break;
+                }
                 if (fileMode) Console.println(strEyeColor);
                 eyeColor = EColor.valueOf(strEyeColor.toUpperCase());
                 break;
@@ -322,14 +344,23 @@ public class QuestionAboutPerson {
     }
 
     public Country askNationality() throws IncorrectInputInScriptException {
-        String strNationality;
+        String numberOfChoice;
+        String strNationality = "";
         Country nationality;
         while (true) {
             try {
                 Console.println("Список стран- " + Country.nameList());
-                Console.println("Введите страну:");
+                Console.println("Введите страну (RUSSIA - 1, GERMANY - 2, THAILAND - 3) :");
                 Console.print(Proga.PS2);
-                strNationality = userScanner.nextLine().trim();
+                numberOfChoice = userScanner.nextLine().trim();
+                switch (numberOfChoice){
+                    case "1": strNationality="RUSSIA";
+                        break;
+                    case "2": strNationality="GERMANY";
+                        break;
+                    case "3": strNationality="THAILAND";
+                        break;
+                }
                 if (fileMode) Console.println(strNationality);
                 nationality = Country.valueOf(strNationality.toUpperCase());
                 break;
