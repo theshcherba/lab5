@@ -46,6 +46,36 @@ public class FromXml {
         }
     }
 
+    public boolean check(Node node) {
+        Validator checkCorrectInput = new Validator();
+        if (node.getNodeType() == Node.ELEMENT_NODE) {
+            Element element = (Element) node;
+            String locationName = getTagValue(TAG_LOCATION_NAME, element);
+            double a = Double.parseDouble(getTagValue(TAG_COORDINATE_X, element));
+            long b = Long.parseLong(getTagValue(TAG_COORDINATE_Y, element));
+            int height = Integer.parseInt(getTagValue(TAG_HEIGHT, element));
+            String name = getTagValue(TAG_NAME, element);
+            String eyeColor = getTagValue(TAG_EYE_COLOR, element);
+            String hairColor = getTagValue(TAG_HAIR_COLOR, element);
+            String nationality = getTagValue(TAG_NATIONALITY, element);
+
+            int isCorrectInput = 1;
+            isCorrectInput *= checkCorrectInput.checkName(name);
+            isCorrectInput *= checkCorrectInput.checkCoordinateX(a);
+            isCorrectInput *= checkCorrectInput.checkCoordinateY(b);
+            isCorrectInput *= checkCorrectInput.checkLocationName(locationName);
+            isCorrectInput *= checkCorrectInput.checkHeight(height);
+            isCorrectInput *= checkCorrectInput.checkEyeColor(eyeColor);
+            isCorrectInput *= checkCorrectInput.checkHairColor(hairColor);
+            isCorrectInput *= checkCorrectInput.checkCountry(nationality);
+
+            if (isCorrectInput == 1) return true;
+            return false;
+        }
+        return true;
+    }
+
+
     // создаем из узла документа объект Person
     private static Person getPerson(Node node) {
         if (node.getNodeType() == Node.ELEMENT_NODE) { // проверка узла node на соответсвие элементу

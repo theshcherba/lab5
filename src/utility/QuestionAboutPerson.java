@@ -245,7 +245,7 @@ public class QuestionAboutPerson {
         int height;
         while (true) {
             try {
-                Console.println("Введите возраст:");
+                Console.println("Введите рост:");
                 Console.print(Proga.PS2);
                 strHeight = userScanner.nextLine().trim();
                 if (fileMode) Console.println(strHeight);
@@ -275,7 +275,6 @@ public class QuestionAboutPerson {
         HColor hairColor;
         while (true) {
             try {
-                Console.println("Список цвета волос- " + HColor.nameList());
                 Console.println("Введите цвет волос (GREEN - 1, BLACK - 2, YELLOW - 3, WHITE -4): ");
                 Console.print(Proga.PS2);
                 numberOfChoice = userScanner.nextLine().trim();
@@ -312,7 +311,6 @@ public class QuestionAboutPerson {
         EColor eyeColor;
         while (true) {
             try {
-                Console.println("Список цвета глаз- " + EColor.nameList());
                 Console.println("Введите цвет глаз (GREEN - 1, BLUE - 2, ORANGE - 3, WHITE -4):");
                 Console.print(Proga.PS2);
                 numberOfChoice = userScanner.nextLine().trim();
@@ -349,7 +347,6 @@ public class QuestionAboutPerson {
         Country nationality;
         while (true) {
             try {
-                Console.println("Список стран- " + Country.nameList());
                 Console.println("Введите страну (RUSSIA - 1, GERMANY - 2, THAILAND - 3) :");
                 Console.print(Proga.PS2);
                 numberOfChoice = userScanner.nextLine().trim();

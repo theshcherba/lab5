@@ -4,13 +4,13 @@ import classesandenums.*;
 
 public class Validator {
 
-    public int checkCoordinateX(double x) {
-        if (Coordinates.checkValidСX(x)) return 1;
+    public int checkCoordinateX(double a) {
+        if (Coordinates.checkValidСX(a)) return 1;
         return 0;
     }
 
-    public int checkCoordinateY(long y) {
-        if (Coordinates.checkValidСY(y)) return 1;
+    public int checkCoordinateY(long b) {
+        if (Coordinates.checkValidСY(b)) return 1;
         return 0;
     }
 

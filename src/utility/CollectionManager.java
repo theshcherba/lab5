@@ -243,6 +243,7 @@ public class CollectionManager {
         lastInitTime = LocalDateTime.now();
     }
 
+
     public String toString() {
         if (personCollection.isEmpty()) return "Коллекция пуста!";
         Person[] people = collectionToArray();

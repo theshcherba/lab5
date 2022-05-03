@@ -57,14 +57,14 @@ public class CommandManager {
 //    /**
 //     * Выводит описание по доступным командам.
 //     */
-//    public boolean help(String argument) {
-//        if (helpCommand.execute(argument)) {
-//            for (Command command : commands) {
-//                Console.printtable(command.getName(), command.getDescription());
-//            }
-//            return true;
-//        } else return false;
-//    }
+    public boolean help(String argument) {
+        if (helpCommand.execute(argument)) {
+            for (Command command : commands) {
+                Console.printtable(command.getName(), command.getDescription());
+            }
+            return true;
+        } else return false;
+    }
 //
 //    /**
 //     * Выводит в стандартный поток вывода информацию о коллекции
