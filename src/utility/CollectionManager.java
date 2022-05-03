@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class CollectionManager {
     private static LinkedHashSet<Person> personCollection = new LinkedHashSet<>();
@@ -41,7 +42,7 @@ public class CollectionManager {
 //        collection.addAll(collectionFromFile);
 //    }
 
-    public Location[] getArrayOfUniqueLocation() {
+    public void getArrayOfUniqueLocation() {
         Person[] arrayPeople = collectionToArray();
         Set<Location> locationsSet = new HashSet<>();
         for (int i = 0; i < arrayPeople.length; i++) {
@@ -52,14 +53,16 @@ public class CollectionManager {
         for (int j = 0; j < locArray.length; j++) {
             locations[j] = (Location) locArray[j];
         }
-        return locations;
+        for (int k = 0; k < locations.length; k++) {
+            System.out.println(locations[k]);
+        };
     }
 
-    public Person[] filterStartsWithName(String substring) {
+    public void filterStartsWithName(String substring) {
         Person[] arrayPeople = collectionToArray();
         Set<Person> selectedPeopleList = new HashSet<>();
         for (int i = 0; i < arrayPeople.length; i++) {
-            if (arrayPeople[i].getName().substring(0, substring.length() + 1).equals(substring)) {
+            if (arrayPeople[i].getName().substring(0, substring.length()+1).equals(substring)) {
                 selectedPeopleList.add(arrayPeople[i]);
             }
         }
@@ -67,8 +70,12 @@ public class CollectionManager {
         Object[] selectedObjects = selectedPeopleList.toArray();
         for (int k = 0; k < selectedObjects.length; k++) {
             selectedPeopleArray[k] = (Person) selectedObjects[k];
+            System.out.println(selectedPeopleArray[k]);
         }
-        return selectedPeopleArray;
+
+
+
+
     }
 
     public void groupCountingById() {
@@ -78,19 +85,19 @@ public class CollectionManager {
             if (arrayPeople[i].getId() % 2 == 0) {
                 Long id = arrayPeople[i].getId();
                 selectedIdList.add(id);
-                Integer count = selectedIdList.size();
-                Integer idLeft = arrayPeople.length - count;
-                System.out.println("Количество id, делящихся на 2: " + count + ". " + "Количество оставшихся id: " + idLeft + ".");
             }
-
         }
+
+        Integer count = selectedIdList.size();
+        Integer idLeft = arrayPeople.length - count;
+        System.out.println("Количество четных ID: " + count + ". " + "Количество нечетных ID: " + idLeft + ".");
     }
-//    /**
-//     * возращает саму коллекцию.
-//     */
-//    public LinkedHashSet<Person> getCollection() {
-//        return personCollection;
-//    }
+    /**
+     * возращает саму коллекцию.
+     */
+    public LinkedHashSet<Person> getCollection() {
+        return personCollection;
+    }
 
     /**
      * возращает время последней инициализации или null, если инициализации не было.
@@ -196,13 +203,15 @@ public class CollectionManager {
     }
 
     /**
-     * Генерирует следующий идентификатор. Это будет (больший + 1).
+     * Генерирует следующий идентификатор.
      * Возращает Next ID.
      */
+
     public Long generateNextId() {
         if (personCollection.isEmpty()) return 1L;
-        Person[] people = collectionToArray();
-        return people[people.length - 1].getId() + 1;
+        int a = (int) (Math.random()*400000+100000);
+        Long ID = Long.valueOf(a);
+        return ID;
     }
 
     /**

@@ -17,11 +17,11 @@ private QuestionAboutPerson questionAboutPerson;
 
     public boolean execute(String argument) {
         try {
-            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
+            if (argument.isEmpty()) throw new WrongAmountOfElementsException();
             collectionManager.filterStartsWithName(argument);
             return true;
         } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
+            Console.println("Необходимо ввести подстроку, с которой должно начинаться имя!");
         }
         return false;
 

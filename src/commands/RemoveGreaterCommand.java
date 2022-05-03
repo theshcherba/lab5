@@ -25,6 +25,9 @@ public class RemoveGreaterCommand extends AbstractCommand{
     public boolean execute(String argument) {
         try {
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
+            if (!argument.isEmpty()){
+                Console.println("Зачем аргумент? Ну да ладно");
+            }
             Person personToFind = new Person(
                     collectionManager.generateNextId(),
                     questionAboutPerson.askName(),
