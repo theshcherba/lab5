@@ -1,6 +1,7 @@
 package utility;
 
 import classesandenums.*;
+import exceptions.CantBeNumberException;
 import exceptions.IncorrectInputInScriptException;
 import exceptions.MustBeNotEmptyException;
 import exceptions.NotInDeclaredLimitsException;
@@ -21,29 +22,6 @@ public class QuestionAboutPerson {
         this.userScanner = userScanner;
         fileMode = false;
     }
-//    public void setUserScanner(Scanner userScanner) {
-//        this.userScanner = userScanner;
-//    }
-//    /**
-//     * @return Scanner, which uses for user input.
-//     */
-//    public Scanner getUserScanner() {
-//        return userScanner;
-//    }
-//
-//    /**
-//     * Sets marine asker mode to 'File Mode'.
-//     */
-//    public void setFileMode() {
-//        fileMode = true;
-//    }
-//
-//    /**
-//     * Sets marine asker mode to 'User Mode'.
-//     */
-//    public void setUserMode() {
-//        fileMode = false;
-//    }
 
     public String askName() throws IncorrectInputInScriptException {
         String name;
@@ -53,8 +31,10 @@ public class QuestionAboutPerson {
                 Console.print(Proga.PS2);
                 name = userScanner.nextLine().trim();
                 if (fileMode) Console.println(name);
+                if (isDigital(name)) throw new CantBeNumberException();
                 if (name.equals("")) throw new MustBeNotEmptyException();
                 break;
+
             } catch (NoSuchElementException exception) {
                 Console.printerror("Имя не распознано!");
                 if (fileMode) throw new IncorrectInputInScriptException();
@@ -64,9 +44,19 @@ public class QuestionAboutPerson {
             } catch (IllegalStateException exception) {
                 Console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
+            } catch (CantBeNumberException e) {
+                Console.printerror("Имя не может быть представлено числом");
             }
         }
         return name;
+    }
+    public boolean isDigital(String name){
+        try{
+            Double doubleName = Double.valueOf(name);
+            return true;
+        }catch (NumberFormatException exception){
+            return false;
+        }
     }
 
     public double askCX() throws IncorrectInputInScriptException {
@@ -219,6 +209,7 @@ public class QuestionAboutPerson {
                 Console.print(Proga.PS2);
                 locationName = userScanner.nextLine().trim();
                 if (fileMode) Console.println(locationName);
+                if (isDigital(locationName)) throw new CantBeNumberException();
                 if (locationName.equals("")) throw new MustBeNotEmptyException();
                 break;
             } catch (NoSuchElementException exception) {
@@ -230,6 +221,8 @@ public class QuestionAboutPerson {
             } catch (IllegalStateException exception) {
                 Console.printerror("Непредвиденная ошибка!");
                 System.exit(0);
+            } catch (CantBeNumberException e) {
+                Console.printerror("Название города не может быть представлено числом");
             }
         }
         return locationName;
