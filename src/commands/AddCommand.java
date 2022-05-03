@@ -21,7 +21,7 @@ public class AddCommand extends AbstractCommand {
 
     public boolean execute(String argument) {
         try {
-            if (argument.isEmpty()) throw new WrongAmountOfElementsException();
+            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             collectionManager.addToCollection(new Person(
                     collectionManager.generateNextId(),
                     questionAboutPerson.askName(),
@@ -37,7 +37,7 @@ public class AddCommand extends AbstractCommand {
             return true;
         } //catch – определяет блок кода, в котором происходит обработка исключения
         catch (WrongAmountOfElementsException exception) { //неправильное количество элементов
-            Console.println("Использование: '" + getName() + "'");
+            Console.println("Команда не использует аргументы!");
         } catch (IncorrectInputInScriptException exception) {
             // TODO: add smth
         }//неправильный ввод в скрипте

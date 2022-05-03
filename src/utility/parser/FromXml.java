@@ -11,6 +11,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import utility.Console;
 
 public class FromXml {
     private static final String TAG_ID = "id";
@@ -39,7 +40,10 @@ public class FromXml {
             document.getDocumentElement().normalize();
             NodeList nodeList = document.getElementsByTagName("person");
             for (int i = 0; i < nodeList.getLength(); i++) {
-                collectionList.add(getPerson(nodeList.item(i)));
+                if (check(nodeList.item(i))){
+                    collectionList.add(getPerson(nodeList.item(i)));
+                } else Console.printerror("!В файле для чтения обнаружена ошибка!");
+
             }
         } catch (Exception exc) {
             exc.printStackTrace();
