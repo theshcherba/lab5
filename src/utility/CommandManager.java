@@ -13,7 +13,7 @@ public class CommandManager {
 
     public CommandManager(CollectionManager collectionManager, QuestionAboutPerson questionAboutPerson) {
         commands = new HashMap<>();
-        commands.put("help", new HelpCommand());
+        commands.put("help", new HelpCommand(commands));
         commands.put("info", new InfoCommand(collectionManager));
         commands.put("show", new ShowCommand(collectionManager));
         commands.put("add", new AddCommand(collectionManager, questionAboutPerson));
@@ -57,13 +57,6 @@ public class CommandManager {
 //    /**
 //     * Выводит описание по доступным командам.
 //     */
-    public boolean help(String argument) {
-        if (helpCommand.execute(argument)) {
-            for (Command command : commands) {
-                Console.printtable(command.getName(), command.getDescription());
-            }
-            return true;
-        } else return false;
     }
 //
 //    /**
@@ -177,4 +170,4 @@ public class CommandManager {
 //    public String toString() {
 //        return "CommandManager (вспомогательный класс для работы с командами)";
 //    }
-}
+

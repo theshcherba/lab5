@@ -101,6 +101,9 @@ import java.util.Scanner;
             System.err.println("error: " + toOut);
         }
 
+        public static void printtable(Object element1, Object element2) {
+            System.out.printf("%-37s%-1s%n", element1, element2);
+        }
 
 
         public String toString() {
