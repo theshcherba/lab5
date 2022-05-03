@@ -44,6 +44,7 @@ public class CommandManager {
     public HashMap<String, Command> getCommands() {
         return commands;
     }
+}
 
 //    /**
 //     * Показывает, что команда не найдена.
@@ -57,7 +58,6 @@ public class CommandManager {
 //    /**
 //     * Выводит описание по доступным командам.
 //     */
-    }
 //
 //    /**
 //     * Выводит в стандартный поток вывода информацию о коллекции

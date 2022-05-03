@@ -61,21 +61,21 @@ public class CollectionManager {
     public void filterStartsWithName(String substring) {
         Person[] arrayPeople = collectionToArray();
         Set<Person> selectedPeopleList = new HashSet<>();
-        try {
-            for (int i = 0; i < arrayPeople.length; i++) {
-                if (arrayPeople[i].getName().substring(0, substring.length() + 1).equals(substring)) {
-                    selectedPeopleList.add(arrayPeople[i]);
-                }
+        for (int i = 0; i < arrayPeople.length; i++) {
+            if (arrayPeople[i].getName().substring(0, substring.length()+1).equals(substring)) {
+                selectedPeopleList.add(arrayPeople[i]);
             }
-            Person[] selectedPeopleArray = new Person[selectedPeopleList.size()];
-            Object[] selectedObjects = selectedPeopleList.toArray();
-            for (int k = 0; k < selectedObjects.length; k++) {
-                selectedPeopleArray[k] = (Person) selectedObjects[k];
-                System.out.println(selectedPeopleArray[k]);
-            }
-        } catch (StringIndexOutOfBoundsException e) {
-            Console.printerror("");
         }
+        Person[] selectedPeopleArray = new Person[selectedPeopleList.size()];
+        Object[] selectedObjects = selectedPeopleList.toArray();
+        for (int k = 0; k < selectedObjects.length; k++) {
+            selectedPeopleArray[k] = (Person) selectedObjects[k];
+            System.out.println(selectedPeopleArray[k]);
+        }
+
+
+
+
     }
 
     public void groupCountingById() {
