@@ -117,7 +117,7 @@ public class QuestionAboutPerson {
                 Console.printerror("Координата Y не может быть меньше " + MIN_Y + "!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NumberFormatException exception) {
-                Console.printerror("Координата Y должна быть представлена числом!");
+                Console.printerror("Координата Y должна быть представлена целым числом!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NullPointerException | IllegalStateException exception) {
                 Console.printerror("Непредвиденная ошибка!");
@@ -201,7 +201,7 @@ public class QuestionAboutPerson {
                 Console.printerror("Координата Z не распознана!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NumberFormatException exception) {
-                Console.printerror("Координата Z должна быть представлена числом!");
+                Console.printerror("Координата Z должна быть представлена целым числом числом!");
                 if (fileMode) throw new IncorrectInputInScriptException();
             } catch (NullPointerException | IllegalStateException exception) {
                 Console.printerror("Непредвиденная ошибка!");
