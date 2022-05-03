@@ -3,10 +3,21 @@ package classesandenums;
 public class Coordinates {
     private double x;
     private long y;
+    private static double max_x = 935;
+    private static long min_y = -815;
 
     public Coordinates(double x, long y) {
         this.x = x;
         this.y = y;
+    }
+    public static boolean checkValidX(Float x) {
+        if (x > max_x) return false;
+        return true;
+    }
+
+    public static boolean checkValidY (Float y) {
+        if (y < min_y) return false;
+        return true;
     }
 
     public double getX() {

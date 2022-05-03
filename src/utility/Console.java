@@ -102,11 +102,7 @@ import java.util.Scanner;
         }
 
 
-//        public static void printtable(Object element1, Object element2) {
-//            System.out.printf("%-37s%-1s%n", element1, element2);
-//        }
 
-        @Override
         public String toString() {
             return "Console (класс для обработки ввода команд)";
         }

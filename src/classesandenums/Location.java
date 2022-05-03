@@ -25,7 +25,7 @@ public class Location {
         return name;
    }
     public String toString() {
-        return "Координата X:" + x + "Координата Y:" + y + "Координата Z:" + z + "Город:" + name;
+        return "Координата X:" + x + " Координата Y:" + y + " Координата Z:" + z + " Город:" + name;
     }
     public int hashCode() {
         return x.hashCode() + (int) y + z.hashCode() + name.hashCode();

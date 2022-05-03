@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Proga {
-    public static final String PS1 = "$ ";
     public static final String PS2 = "> ";
 
     public static void main(String[] args) {

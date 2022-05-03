@@ -59,7 +59,7 @@ public class Person implements Comparable<Person> {
     }
     public String toString() {
         String info = "";
-        info += "Человек" + id;
+        info += "Человек " + id;
         info += " (добавлен " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
         info += "\n Имя: " + name;
         info += "\n Местоположение: " + coordinates;
