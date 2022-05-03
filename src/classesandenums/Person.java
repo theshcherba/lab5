@@ -11,6 +11,7 @@ public class Person implements Comparable<Person> {
     private HColor hairColor;
     private Country nationality;
     private Location location;
+    private static double min_height = 0;
 
     public Person(Long id, String name, Coordinates coordinates, LocalDateTime creationDate, int height,
                   EColor eyeColor, HColor hairColor, Country nationality, Location location) {
@@ -56,6 +57,10 @@ public class Person implements Comparable<Person> {
     public int compareTo(Person personObj) {
         return id.compareTo(personObj.getId());
 
+    }
+    public static boolean checkValidHeight(int height) {
+        if (height < min_height) return false;
+        return true;
     }
     public String toString() {
         String info = "";
