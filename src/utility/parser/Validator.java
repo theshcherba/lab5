@@ -1,37 +1,34 @@
-/*package utility.parser;
+package utility.parser;
 
-import classesandenums.Coordinates;
+import classesandenums.*;
 
 public class Validator {
-    public int checkCoordinateX(Float x) {
-        if (Coordinates.checkValidX(x)) return 1;
+
+    public int checkCoordinateX(double x) {
+        if (Coordinates.checkValidСX(x)) return 1;
         return 0;
     }
 
-    public int checkCoordinateY(Float y) {
-        if (Coordinates.checkValidY(y)) return 1;
+    public int checkCoordinateY(long y) {
+        if (Coordinates.checkValidСY(y)) return 1;
         return 0;
     }
-
 
     public int checkName(String name) {
         if (!name.equals("0") && !name.equals("")) return 1;
         return 0;
     }
-
-    public int checkRealHero(Boolean realHero) {
-        if (realHero != null) return 1;
+    public int checkLocationName(String locationName) {
+        if (!locationName.equals("0") && !locationName.equals("")) return 1;
         return 0;
     }
-
-    public int checkSoundtrackName(String soundtrackName) {
-        if (soundtrackName != null) return 1;
+    public int checkHeight(int height) {
+        if (Person.checkValidHeight(height)) return 1;
         return 0;
     }
-
-    public int checkWeaponType(String weaponType) {
+    public int checkEyeColor(String eyeColor) {
         try {
-            .valueOf(weaponType);
+            EColor.valueOf(eyeColor);
             return 1;
         }
         catch (IllegalArgumentException e) {
@@ -39,11 +36,22 @@ public class Validator {
         }
     }
 
-    public int checkCar(String car) {
-        if (car != null) return 1;
-        return 0;
+    public int checkHairColor(String hairColor) {
+        try {
+            HColor.valueOf(hairColor);
+            return 1;
+        }
+        catch (IllegalArgumentException e) {
+            return 0;
+        }
+    }
+    public int checkCountry(String nationality) {
+        try {
+            Country.valueOf(nationality);
+            return 1;
+        }
+        catch (IllegalArgumentException e) {
+            return 0;
+        }
     }
 }
-
-
- */
