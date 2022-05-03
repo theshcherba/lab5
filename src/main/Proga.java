@@ -32,8 +32,13 @@ public class Proga {
 
         while (true) {
             System.out.println("Введите команду");
-            String commandName = input.nextLine();
-            commandManager.execute(commandName, pathFile);
+            String arguments;
+            String []commandNameAndArguments = input.nextLine().split(" ");
+            String commandName = commandNameAndArguments[0];
+            if (commandNameAndArguments.length>1){
+                arguments = commandNameAndArguments[1];
+            } else  arguments = "";
+            commandManager.execute(commandName, arguments);
         }
 
     }

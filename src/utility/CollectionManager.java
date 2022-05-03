@@ -244,5 +244,8 @@ public class CollectionManager {
         }
         return info;
     }
+    public void exit(){
+        System.exit(0);
+    }
 
 }

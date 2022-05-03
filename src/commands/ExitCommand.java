@@ -1,6 +1,7 @@
 package commands;
 
 import exceptions.WrongAmountOfElementsException;
+import utility.CollectionManager;
 import utility.Console;
 
 public class ExitCommand extends AbstractCommand{
@@ -10,12 +11,8 @@ public class ExitCommand extends AbstractCommand{
 
 
     public boolean execute(String argument) {
-        try {
-            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-            return true;
-        } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
-        }
-        return false;
+        System.exit(0);
+        return true;
+
     }
 }

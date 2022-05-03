@@ -24,11 +24,11 @@ public class UpdateCommand extends AbstractCommand{
 
     public boolean execute(String argument) {
         try {
+            if (argument.isEmpty())throw new WrongAmountOfElementsException();
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
-            Long id = Long.parseLong(argument);
+            Long id = Long.valueOf(argument);
             Person oldPerson = collectionManager.getById(id);
             if (oldPerson == null) throw new PersonNotFoundException();
-
             String name = oldPerson.getName();
             Coordinates coordinates = oldPerson.getCoordinates();
             LocalDateTime creationDate = oldPerson.getCreationDate();
@@ -67,7 +67,10 @@ public class UpdateCommand extends AbstractCommand{
             Console.printerror("ID должен быть представлен числом!");
         } catch (PersonNotFoundException exception) {
             Console.printerror("Человека с таким ID в коллекции нет!");
-        } catch (IncorrectInputInScriptException exception) {}
+        } catch (IncorrectInputInScriptException exception) {
+        } catch (WrongAmountOfElementsException e) {
+            Console.printerror("Необходимо ввести аргумент");
+        }
         return false;
     }
 }
