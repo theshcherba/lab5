@@ -14,15 +14,14 @@ public class AddCommand extends AbstractCommand {
     private QuestionAboutPerson questionAboutPerson;
 
     public AddCommand(CollectionManager collectionManager, QuestionAboutPerson questionAboutPerson) {
-        super("add {element}", "добавить новый элемент в коллекцию");
+        super("add: ", "добавить новый элемент в коллекцию");
         this.collectionManager = collectionManager;
         this.questionAboutPerson = questionAboutPerson;
     }
 
     public boolean execute(String argument) { //throw – используется для возбуждения исключения
         try { //определяет блок кода, в котором может произойти исключение
-            if (argument.isEmpty())
-                throw new WrongAmountOfElementsException(); //если аргумент пустой, то выкинет исключение
+            if (argument.isEmpty()) throw new WrongAmountOfElementsException(); //если аргумент пустой, то выкинет исключение
             collectionManager.addToCollection(new Person(
                     collectionManager.generateNextId(),
                     questionAboutPerson.askName(),

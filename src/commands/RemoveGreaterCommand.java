@@ -24,7 +24,6 @@ public class RemoveGreaterCommand extends AbstractCommand{
 
     public boolean execute(String argument) {
         try {
-            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
             Person personToFind = new Person(
                     collectionManager.generateNextId(),
@@ -42,8 +41,6 @@ public class RemoveGreaterCommand extends AbstractCommand{
             collectionManager.removeGreater(personFromCollection);
             Console.println("Люди успешно удалены!");
             return true;
-        } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
             Console.printerror("Коллекция пуста!");
         } catch (PersonNotFoundException exception) {

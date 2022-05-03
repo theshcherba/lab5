@@ -1,10 +1,9 @@
 package commands;
 
-import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.Console;
 
-public class ClearCommand extends AbstractCommand{
+public class ClearCommand extends AbstractCommand {
    private CollectionManager collectionManager;
 
    public ClearCommand(CollectionManager collectionManager) {
@@ -13,14 +12,9 @@ public class ClearCommand extends AbstractCommand{
    }
 
    public boolean execute(String argument) {
-      try {
-         if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
-         collectionManager.clearCollection();
-         Console.println("Коллекция очищена!");
-         return true;
-      } catch (WrongAmountOfElementsException exception) {
-         Console.println("Использование: '" + getName() + "'");
-      }
-      return false;
+      collectionManager.clearCollection();
+      Console.println("Коллекция очищена!");
+      return true;
+
    }
 }

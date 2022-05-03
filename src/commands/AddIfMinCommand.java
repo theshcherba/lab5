@@ -21,7 +21,6 @@ public class AddIfMinCommand extends AbstractCommand{
 
     public boolean execute(String argument) {
         try {
-            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             Person personToAdd = new Person(
                     collectionManager.generateNextId(),
                     questionAboutPerson.askName(),
@@ -38,8 +37,6 @@ public class AddIfMinCommand extends AbstractCommand{
                 Console.println("Человек успешно добавлен!");
                 return true;
             } else Console.printerror("Значение человека больше, чем значение наименьшего из людей!");
-        } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
         } catch (IncorrectInputInScriptException exception) {}
         return false;
     }

@@ -24,6 +24,7 @@ public class CommandManager {
         commands.put("execute_script", new ExecuteScriptCommand());
         commands.put("add_if_min", new AddIfMinCommand(collectionManager, questionAboutPerson));
         commands.put("remove_greater", new RemoveGreaterCommand(collectionManager, questionAboutPerson));
+        commands.put("remove_lower", new RemoveLowerCommand(collectionManager, questionAboutPerson));
         commands.put("group_counting_by_id", new GroupCountingByIdCommand(collectionManager));
         commands.put("filter_starts_with_name", new FilterStartsWithNameCommand(collectionManager, questionAboutPerson));
         commands.put("print_unique_location", new PrintUniqueLocationCommand(collectionManager, questionAboutPerson));
@@ -31,12 +32,11 @@ public class CommandManager {
     }
 
     public void execute(String commandName, String arguments) {
-
         try {
             Command command = commands.get(commandName);
             command.execute(arguments);
         } catch (NullPointerException exp) {
-            System.out.println("Command [" + commandName + "]" + "not found ");
+            System.out.println("Команда < " + commandName + " > не найдена.");
         }
     }
 

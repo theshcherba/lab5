@@ -12,10 +12,9 @@ public class SaveCommand extends AbstractCommand {
         this.collectionManager = collectionManager;
     }
 
-
     public boolean execute(String argument) {
-//TODO: recheck
         collectionManager.saveCollection();
+        Console.println("Коллекция успешно сохранена!");
         return true;
     }
 }

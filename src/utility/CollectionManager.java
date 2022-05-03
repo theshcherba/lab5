@@ -214,16 +214,15 @@ public class CollectionManager {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream(pathFile));
             try {
                 outputStreamWriter.write(xml);
-            } catch (IOException e) {
-                // TODO: change the logic
-                e.printStackTrace();
+            } catch (IOException exception) {
+                Console.printerror("Ошибка записи в файл.");
             } finally {
                 outputStreamWriter.flush();
                 outputStreamWriter.close();
                 lastSaveTime = LocalDateTime.now();
             }
-        } catch (Exception exception) {
-            System.out.println(exception);
+        } catch (IOException exception) {
+            Console.printerror("Ошибка доступа к файлу.");
         }
     }
 

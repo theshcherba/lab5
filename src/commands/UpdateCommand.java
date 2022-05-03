@@ -24,7 +24,6 @@ public class UpdateCommand extends AbstractCommand{
 
     public boolean execute(String argument) {
         try {
-            if (argument.isEmpty()) throw new WrongAmountOfElementsException();
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
             Long id = Long.parseLong(argument);
             Person oldPerson = collectionManager.getById(id);
@@ -62,8 +61,6 @@ public class UpdateCommand extends AbstractCommand{
             ));
             Console.println("Человек успешно изменен!");
             return true;
-        } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
             Console.printerror("Коллекция пуста!");
         } catch (NumberFormatException exception) {

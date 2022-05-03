@@ -16,7 +16,7 @@ public class RemoveLowerCommand extends AbstractCommand{
     private QuestionAboutPerson questionAboutPerson;
 
     public RemoveLowerCommand(CollectionManager collectionManager, QuestionAboutPerson questionAboutPerson) {
-        super("remove_greater {element}", "удалить из коллекции все элементы, меньшие, чем заданный");
+        super("remove_lower {element}", "удалить из коллекции все элементы, меньшие, чем заданный");
         this.collectionManager = collectionManager;
         this.questionAboutPerson = questionAboutPerson;
     }
@@ -24,7 +24,6 @@ public class RemoveLowerCommand extends AbstractCommand{
 
     public boolean execute(String argument) {
         try {
-            if (!argument.isEmpty()) throw new WrongAmountOfElementsException();
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
             Person personToFind = new Person(
                     collectionManager.generateNextId(),
@@ -42,8 +41,6 @@ public class RemoveLowerCommand extends AbstractCommand{
             collectionManager.removeLower(personFromCollection);
             Console.println("Люди успешно удалены!");
             return true;
-        } catch (WrongAmountOfElementsException exception) {
-            Console.println("Использование: '" + getName() + "'");
         } catch (CollectionIsEmptyException exception) {
             Console.printerror("Коллекция пуста!");
         } catch (PersonNotFoundException exception) {
