@@ -37,10 +37,10 @@ public class CollectionManager {
         }
         return arrayPeople;
     }
-//    public void personCollection(LinkedHashSet<Person> readCollection) {
-//        collection.addAll(collectionFromFile);
-//    }
 
+    /**
+     * выводит уникальные значения поля location всех элементов в коллекции
+     */
     public void getArrayOfUniqueLocation() {
         Person[] arrayPeople = collectionToArray();
         Set<Location> locationsSet = new HashSet<>();
@@ -57,6 +57,9 @@ public class CollectionManager {
         }
     }
 
+    /**
+     * выводит элементы, значение поля name которых начинается с заданной подстроки
+     */
     public void filterStartsWithName(String substring) {
         Person[] arrayPeople = collectionToArray();
         Set<Person> selectedPeopleList = new HashSet<>();
@@ -74,6 +77,9 @@ public class CollectionManager {
 
     }
 
+    /**
+     * сгруппировывает элементы коллекции по значению ID поля
+     */
     public void groupCountingById() {
         Person[] arrayPeople = collectionToArray();
         Set<Long> selectedIdList = new HashSet<>();
