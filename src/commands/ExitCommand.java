@@ -1,8 +1,5 @@
 package commands;
 
-import exceptions.WrongAmountOfElementsException;
-import utility.CollectionManager;
-import utility.Console;
 
 public class ExitCommand extends AbstractCommand{
     public ExitCommand() {

@@ -2,7 +2,6 @@ package commands;
 
 import classesandenums.Person;
 import exceptions.IncorrectInputInScriptException;
-import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.Console;
 import utility.QuestionAboutPerson;

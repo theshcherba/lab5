@@ -1,6 +1,6 @@
 package commands;
 
-import exceptions.WrongAmountOfElementsException;
+
 import utility.CollectionManager;
 import utility.Console;
 
