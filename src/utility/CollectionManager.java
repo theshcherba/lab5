@@ -5,13 +5,12 @@ import classesandenums.Person;
 import utility.parser.FromXml;
 import utility.parser.ToXml;
 
-import javax.xml.transform.stream.StreamResult;
+
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.function.Predicate;
 
 public class CollectionManager {
     private static LinkedHashSet<Person> personCollection = new LinkedHashSet<>();
@@ -38,10 +37,10 @@ public class CollectionManager {
         }
         return arrayPeople;
     }
-//    public void personCollection(LinkedHashSet<Person> readCollection) {
-//        collection.addAll(collectionFromFile);
-//    }
 
+    /**
+     * выводит уникальные значения поля location всех элементов в коллекции
+     */
     public void getArrayOfUniqueLocation() {
         Person[] arrayPeople = collectionToArray();
         Set<Location> locationsSet = new HashSet<>();
@@ -55,9 +54,12 @@ public class CollectionManager {
         }
         for (int k = 0; k < locations.length; k++) {
             System.out.println(locations[k]);
-        };
+        }
     }
 
+    /**
+     * выводит элементы, значение поля name которых начинается с заданной подстроки
+     */
     public void filterStartsWithName(String substring) {
         Person[] arrayPeople = collectionToArray();
         Set<Person> selectedPeopleList = new HashSet<>();
@@ -73,11 +75,11 @@ public class CollectionManager {
             System.out.println(selectedPeopleArray[k]);
         }
 
-
-
-
     }
 
+    /**
+     * сгруппировывает элементы коллекции по значению ID поля
+     */
     public void groupCountingById() {
         Person[] arrayPeople = collectionToArray();
         Set<Long> selectedIdList = new HashSet<>();
@@ -92,12 +94,7 @@ public class CollectionManager {
         Integer idLeft = arrayPeople.length - count;
         System.out.println("Количество четных ID: " + count + ". " + "Количество нечетных ID: " + idLeft + ".");
     }
-    /**
-     * возращает саму коллекцию.
-     */
-    public LinkedHashSet<Person> getCollection() {
-        return personCollection;
-    }
+
 
     /**
      * возращает время последней инициализации или null, если инициализации не было.
@@ -136,15 +133,6 @@ public class CollectionManager {
         return people[0];
     }
 
-//    /**
-//     * возращает последний элемент коллекции или null, если коллекция пуста.
-//     */
-//    public Person getLast() {
-//        if (personCollection.isEmpty()) return null;
-//        Person[] people = collectionToArray();
-//        return people[people.length - 1];
-//    }
-
     /**
      * параметр id персона.
      * возвращает персона по его идентификатору или null, если персон не найден.
@@ -156,6 +144,9 @@ public class CollectionManager {
         return null;
     }
 
+    /**
+     * personToFind ищет уникального персона.
+     */
     public Person getByValue(Person personToFind) {
         for (Person person : personCollection) {
             if (person.equals(personToFind)) return person;
@@ -253,9 +244,6 @@ public class CollectionManager {
             if (person != people[people.length - 1]) info += "\n\n";
         }
         return info;
-    }
-    public void exit(){
-        System.exit(0);
     }
 
 }

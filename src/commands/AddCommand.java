@@ -38,9 +38,9 @@ public class AddCommand extends AbstractCommand {
         } //catch – определяет блок кода, в котором происходит обработка исключения
         catch (WrongAmountOfElementsException exception) { //неправильное количество элементов
             Console.println("Команда не использует аргументы!");
-        } catch (IncorrectInputInScriptException exception) {
+        } catch (IncorrectInputInScriptException exception) {//неправильный ввод в скрипте
             // TODO: add smth
-        }//неправильный ввод в скрипте
+        }
         return false;
     }
 }

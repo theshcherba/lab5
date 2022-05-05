@@ -1,7 +1,5 @@
 package commands;
 
-import exceptions.WrongAmountOfElementsException;
-import utility.CommandManager;
 import utility.Console;
 
 import java.util.HashMap;
