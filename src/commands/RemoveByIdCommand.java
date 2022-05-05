@@ -7,7 +7,7 @@ import exceptions.WrongAmountOfElementsException;
 import utility.CollectionManager;
 import utility.Console;
 
-public class RemoveByIdCommand extends AbstractCommand{
+public class RemoveByIdCommand extends AbstractCommand {
     private CollectionManager collectionManager;
 
     public RemoveByIdCommand(CollectionManager collectionManager) {
@@ -25,19 +25,15 @@ public class RemoveByIdCommand extends AbstractCommand{
             collectionManager.removeFromCollection(personToRemove);
             Console.println("Человек успешно удален!");
             return true;
+        } catch (WrongAmountOfElementsException exception) {
+            Console.println("Использование: '" + getName() + "'");
+        } catch (CollectionIsEmptyException exception) {
+            Console.printerror("Коллекция пуста!");
+        } catch (NumberFormatException exception) {
+            Console.printerror("ID должен быть представлен числом!");
+        } catch (PersonNotFoundException exception) {
+            Console.printerror("Человека с таким ID в коллекции нет!");
         }
-            catch (WrongAmountOfElementsException exception) {
-                Console.println("Использование: '" + getName() + "'");
-            }
-            catch (CollectionIsEmptyException exception) {
-                Console.printerror("Коллекция пуста!");
-            }
-            catch (NumberFormatException exception) {
-                Console.printerror("ID должен быть представлен числом!");
-            }
-            catch (PersonNotFoundException exception) {
-                Console.printerror("Человека с таким ID в коллекции нет!");
-            }
         return false;
     }
 }

@@ -6,7 +6,7 @@ import utility.Console;
 
 import java.time.LocalDateTime;
 
-public class InfoCommand extends AbstractCommand{
+public class InfoCommand extends AbstractCommand {
     private CollectionManager collectionManager;
 
     public InfoCommand(CollectionManager collectionManager) {

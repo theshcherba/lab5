@@ -64,7 +64,7 @@ public class CollectionManager {
         Person[] arrayPeople = collectionToArray();
         Set<Person> selectedPeopleList = new HashSet<>();
         for (int i = 0; i < arrayPeople.length; i++) {
-            if (arrayPeople[i].getName().substring(0, substring.length()+1).equals(substring)) {
+            if (arrayPeople[i].getName().substring(0, substring.length() + 1).equals(substring)) {
                 selectedPeopleList.add(arrayPeople[i]);
             }
         }
@@ -200,7 +200,7 @@ public class CollectionManager {
 
     public Long generateNextId() {
         if (personCollection.isEmpty()) return 1L;
-        int a = (int) (Math.random()*400000+100000);
+        int a = (int) (Math.random() * 400000 + 100000);
         Long ID = Long.valueOf(a);
         return ID;
     }

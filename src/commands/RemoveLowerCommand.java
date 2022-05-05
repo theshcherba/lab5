@@ -10,7 +10,7 @@ import utility.QuestionAboutPerson;
 
 import java.time.LocalDateTime;
 
-public class RemoveLowerCommand extends AbstractCommand{
+public class RemoveLowerCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private QuestionAboutPerson questionAboutPerson;
 
@@ -24,7 +24,7 @@ public class RemoveLowerCommand extends AbstractCommand{
     public boolean execute(String argument) {
         try {
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
-            if (!argument.isEmpty()){
+            if (!argument.isEmpty()) {
                 Console.println("Зачем аргумент? Ну да ладно");
             }
             Person personToFind = new Person(
@@ -47,7 +47,9 @@ public class RemoveLowerCommand extends AbstractCommand{
             Console.printerror("Коллекция пуста!");
         } catch (PersonNotFoundException exception) {
             Console.printerror("Человека с такими характеристиками в коллекции нет!");
-        } catch (IncorrectInputInScriptException exception) {}
+        } catch (IncorrectInputInScriptException e) {
+            Console.printerror("Возникла ошибка при сборе данных");
+        }
         return false;
     }
 }

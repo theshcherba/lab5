@@ -8,7 +8,7 @@ import utility.QuestionAboutPerson;
 
 import java.time.LocalDateTime;
 
-public class AddIfMinCommand extends AbstractCommand{
+public class AddIfMinCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private QuestionAboutPerson questionAboutPerson;
 
@@ -19,8 +19,10 @@ public class AddIfMinCommand extends AbstractCommand{
     }
 
     public boolean execute(String argument) {
+
+        Person personToAdd = null;
         try {
-            Person personToAdd = new Person(
+            personToAdd = new Person(
                     collectionManager.generateNextId(),
                     questionAboutPerson.askName(),
                     questionAboutPerson.askCoordinates(),
@@ -31,12 +33,14 @@ public class AddIfMinCommand extends AbstractCommand{
                     questionAboutPerson.askNationality(),
                     questionAboutPerson.askLocation()
             );
-            if (collectionManager.collectionSize() == 0 || personToAdd.compareTo(collectionManager.getFirst()) < 0) {
-                collectionManager.addToCollection(personToAdd);
-                Console.println("Человек успешно добавлен!");
-                return true;
-            } else Console.printerror("Значение человека больше, чем значение наименьшего из людей!");
-        } catch (IncorrectInputInScriptException exception) {}
+        } catch (IncorrectInputInScriptException e) {
+            Console.printerror("Возникла ошибка при сборе данных");
+        }
+        if (collectionManager.collectionSize() == 0 || personToAdd.compareTo(collectionManager.getFirst()) < 0) {
+            collectionManager.addToCollection(personToAdd);
+            Console.println("Человек успешно добавлен!");
+            return true;
+        } else Console.printerror("Значение человека больше, чем значение наименьшего из людей!");
         return false;
     }
 }

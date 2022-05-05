@@ -40,7 +40,7 @@ public class FromXml {
             document.getDocumentElement().normalize();
             NodeList nodeList = document.getElementsByTagName("person");
             for (int i = 0; i < nodeList.getLength(); i++) {
-                if (check(nodeList.item(i))){
+                if (check(nodeList.item(i))) {
                     collectionList.add(getPerson(nodeList.item(i)));
                 } else Console.printerror("!В файле для чтения обнаружена ошибка!");
 

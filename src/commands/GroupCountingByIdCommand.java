@@ -4,7 +4,6 @@ package commands;
 import utility.CollectionManager;
 
 
-
 public class GroupCountingByIdCommand extends AbstractCommand {
     private CollectionManager collectionManager;
 

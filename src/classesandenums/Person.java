@@ -1,4 +1,5 @@
 package classesandenums;
+
 import java.time.LocalDateTime;
 
 public class Person implements Comparable<Person> {
@@ -29,28 +30,36 @@ public class Person implements Comparable<Person> {
     public Long getId() {
         return id;
     }
+
     public String getName() {
         return name;
     }
+
     public Coordinates getCoordinates() {
         return coordinates;
     }
+
     public LocalDateTime getCreationDate() {
         return creationDate;
     }
+
     public int getHeight() {
         return height;
     }
+
     public EColor getEyeColor() {
         return eyeColor;
     }
+
     public HColor getHairColor() {
         return hairColor;
     }
+
     public Country getNationality() {
         return nationality;
     }
-    public Location getLocation(){
+
+    public Location getLocation() {
         return location;
     }
 
@@ -58,10 +67,12 @@ public class Person implements Comparable<Person> {
         return id.compareTo(personObj.getId());
 
     }
+
     public static boolean checkValidHeight(int height) {
         if (height < min_height) return false;
         return true;
     }
+
     public String toString() {
         String info = "";
         info += "Человек " + id;
@@ -75,10 +86,12 @@ public class Person implements Comparable<Person> {
         info += "\n Местороложение: " + location;
         return info;
     }
+
     public int hashCode() {
         return name.hashCode() + coordinates.hashCode() + height + eyeColor.hashCode() + eyeColor.hashCode() +
                 nationality.hashCode() + location.hashCode();
     }
+
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj instanceof Person) {

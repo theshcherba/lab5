@@ -2,8 +2,8 @@ package classesandenums;
 
  public enum Country {
     RUSSIA,
-    GERMANY,
-    THAILAND;
+     GERMANY,
+     THAILAND;
 
     public static String nameList() {
         String nameList = "";

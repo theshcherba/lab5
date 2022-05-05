@@ -3,6 +3,7 @@ package utility.parser;
 import classesandenums.Person;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import utility.Console;
 
 import javax.xml.parsers.*;
 import javax.xml.transform.OutputKeys;
@@ -42,7 +43,7 @@ public class ToXml {
             Element elementCollection = document.createElement(TAG_COLLECTION);
             document.appendChild(elementCollection);
             Object[] arrayOfObjects = collection.toArray();
-            Person [] arrayPeople = new Person[arrayOfObjects.length];
+            Person[] arrayPeople = new Person[arrayOfObjects.length];
             for (int i = 0; i < arrayOfObjects.length; i++) {
                 arrayPeople[i] = (Person) arrayOfObjects[i];
             }
@@ -113,11 +114,9 @@ public class ToXml {
             String output = writer.getBuffer().toString().replaceAll("\n|\r", "");
 
             return output;
+        } catch (ParserConfigurationException | TransformerException e) {
+            Console.printerror("Ошибка записи файла!");
         }
-        catch (ParserConfigurationException | TransformerException e) {
-            System.out.println(e.getMessage());
-        }
-//        TODO: replace the value
         return null;
     }
 

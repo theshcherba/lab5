@@ -50,11 +50,12 @@ public class QuestionAboutPerson {
         }
         return name;
     }
-    public boolean isDigital(String name){
-        try{
+
+    public boolean isDigital(String name) {
+        try {
             Double doubleName = Double.valueOf(name);
             return true;
-        }catch (NumberFormatException exception){
+        } catch (NumberFormatException exception) {
             return false;
         }
     }
@@ -278,15 +279,19 @@ public class QuestionAboutPerson {
                 Console.println("Введите цвет волос (GREEN - 1, BLACK - 2, YELLOW - 3, WHITE -4): ");
                 Console.print(Proga.PS2);
                 numberOfChoice = userScanner.nextLine().trim();
-                switch (numberOfChoice){
-                    case "1": strHairColor="GREEN";
-                    break;
-                    case "2": strHairColor="BLACK";
-                    break;
-                    case "3": strHairColor="YELLOW";
-                    break;
-                    case "4": strHairColor="WHITE";
-                    break;
+                switch (numberOfChoice) {
+                    case "1":
+                        strHairColor = "GREEN";
+                        break;
+                    case "2":
+                        strHairColor = "BLACK";
+                        break;
+                    case "3":
+                        strHairColor = "YELLOW";
+                        break;
+                    case "4":
+                        strHairColor = "WHITE";
+                        break;
                 }
                 if (fileMode) Console.println(strHairColor);
                 hairColor = HColor.valueOf(strHairColor);
@@ -314,14 +319,18 @@ public class QuestionAboutPerson {
                 Console.println("Введите цвет глаз (GREEN - 1, BLUE - 2, ORANGE - 3, WHITE -4):");
                 Console.print(Proga.PS2);
                 numberOfChoice = userScanner.nextLine().trim();
-                switch (numberOfChoice){
-                    case "1": strEyeColor="GREEN";
+                switch (numberOfChoice) {
+                    case "1":
+                        strEyeColor = "GREEN";
                         break;
-                    case "2": strEyeColor="BLUE";
+                    case "2":
+                        strEyeColor = "BLUE";
                         break;
-                    case "3": strEyeColor="ORANGE";
+                    case "3":
+                        strEyeColor = "ORANGE";
                         break;
-                    case "4": strEyeColor="WHITE";
+                    case "4":
+                        strEyeColor = "WHITE";
                         break;
                 }
                 if (fileMode) Console.println(strEyeColor);
@@ -350,12 +359,15 @@ public class QuestionAboutPerson {
                 Console.println("Введите страну (RUSSIA - 1, GERMANY - 2, THAILAND - 3) :");
                 Console.print(Proga.PS2);
                 numberOfChoice = userScanner.nextLine().trim();
-                switch (numberOfChoice){
-                    case "1": strNationality="RUSSIA";
+                switch (numberOfChoice) {
+                    case "1":
+                        strNationality = "RUSSIA";
                         break;
-                    case "2": strNationality="GERMANY";
+                    case "2":
+                        strNationality = "GERMANY";
                         break;
-                    case "3": strNationality="THAILAND";
+                    case "3":
+                        strNationality = "THAILAND";
                         break;
                 }
                 if (fileMode) Console.println(strNationality);

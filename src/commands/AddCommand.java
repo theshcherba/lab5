@@ -35,11 +35,11 @@ public class AddCommand extends AbstractCommand {
             ));
             Console.println("Человек успешно добавлен!");
             return true;
-        } //catch – определяет блок кода, в котором происходит обработка исключения
+        }
         catch (WrongAmountOfElementsException exception) { //неправильное количество элементов
             Console.println("Команда не использует аргументы!");
-        } catch (IncorrectInputInScriptException exception) {//неправильный ввод в скрипте
-            // TODO: add smth
+        } catch (IncorrectInputInScriptException e) {
+            Console.printerror("Возникла ошибка при сборе данных");
         }
         return false;
     }

@@ -10,12 +10,13 @@ public class Coordinates {
         this.x = x;
         this.y = y;
     }
+
     public static boolean checkValidСX(double x) {
         if (x > max_x) return false;
         return true;
     }
 
-    public static boolean checkValidСY (long y) {
+    public static boolean checkValidСY(long y) {
         if (y < min_y) return false;
         return true;
     }

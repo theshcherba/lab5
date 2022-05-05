@@ -13,8 +13,8 @@ public class FileReaderForScript {
             Scanner fileNameInput = new Scanner(System.in);
             System.out.print("Введите путь до файла: ");
             try {
-                 pathInput = Paths.get(fileNameInput.nextLine());
-            }catch (InvalidPathException exception){
+                pathInput = Paths.get(fileNameInput.nextLine());
+            } catch (InvalidPathException exception) {
                 Console.printerror("Ошибка чтения пути файла");
             }
             if (!pathInput.isAbsolute()) {

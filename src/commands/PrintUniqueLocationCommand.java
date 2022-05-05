@@ -19,7 +19,7 @@ public class PrintUniqueLocationCommand extends AbstractCommand {
     public boolean execute(String argument) {
        try{
            if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
-           if (!argument.isEmpty()){
+           if (!argument.isEmpty()) {
                Console.println("Зачем аргумент? Ну да ладно");
            }
             collectionManager.getArrayOfUniqueLocation();

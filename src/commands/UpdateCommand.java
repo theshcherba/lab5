@@ -11,7 +11,7 @@ import utility.QuestionAboutPerson;
 
 import java.time.LocalDateTime;
 
-public class UpdateCommand extends AbstractCommand{
+public class UpdateCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private QuestionAboutPerson questionAboutPerson;
 
@@ -24,7 +24,7 @@ public class UpdateCommand extends AbstractCommand{
 
     public boolean execute(String argument) {
         try {
-            if (argument.isEmpty())throw new WrongAmountOfElementsException();
+            if (argument.isEmpty()) throw new WrongAmountOfElementsException();
             if (collectionManager.collectionSize() == 0) throw new CollectionIsEmptyException();
             Long id = Long.valueOf(argument);
             Person oldPerson = collectionManager.getById(id);
@@ -41,12 +41,18 @@ public class UpdateCommand extends AbstractCommand{
             collectionManager.removeFromCollection(oldPerson);
 
             if (questionAboutPerson.askQuestion("Хотите изменить имя человека?")) name = questionAboutPerson.askName();
-            if (questionAboutPerson.askQuestion("Хотите изменить координаты человека?")) coordinates = questionAboutPerson.askCoordinates();
-            if (questionAboutPerson.askQuestion("Хотите изменить рост человека?")) height = questionAboutPerson.askHeight();
-            if (questionAboutPerson.askQuestion("Хотите изменить цвет глаз человека?")) eyeColor = questionAboutPerson.askEyeColour();
-            if (questionAboutPerson.askQuestion("Хотите изменить цвет волос человека?")) hairColor = questionAboutPerson.askHairColour();
-            if (questionAboutPerson.askQuestion("Хотите изменить местопроживание человека?")) nationality = questionAboutPerson.askNationality();
-            if (questionAboutPerson.askQuestion("Хотите изменить местоположение человека?")) location = questionAboutPerson.askLocation();
+            if (questionAboutPerson.askQuestion("Хотите изменить координаты человека?"))
+                coordinates = questionAboutPerson.askCoordinates();
+            if (questionAboutPerson.askQuestion("Хотите изменить рост человека?"))
+                height = questionAboutPerson.askHeight();
+            if (questionAboutPerson.askQuestion("Хотите изменить цвет глаз человека?"))
+                eyeColor = questionAboutPerson.askEyeColour();
+            if (questionAboutPerson.askQuestion("Хотите изменить цвет волос человека?"))
+                hairColor = questionAboutPerson.askHairColour();
+            if (questionAboutPerson.askQuestion("Хотите изменить местопроживание человека?"))
+                nationality = questionAboutPerson.askNationality();
+            if (questionAboutPerson.askQuestion("Хотите изменить местоположение человека?"))
+                location = questionAboutPerson.askLocation();
 
             collectionManager.addToCollection(new Person(
                     id,
@@ -67,9 +73,10 @@ public class UpdateCommand extends AbstractCommand{
             Console.printerror("ID должен быть представлен числом!");
         } catch (PersonNotFoundException exception) {
             Console.printerror("Человека с таким ID в коллекции нет!");
-        } catch (IncorrectInputInScriptException exception) {
         } catch (WrongAmountOfElementsException e) {
             Console.printerror("Необходимо ввести аргумент");
+        } catch (IncorrectInputInScriptException e) {
+            Console.printerror("Возникла ошибка при сборе данных");
         }
         return false;
     }

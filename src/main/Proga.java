@@ -34,11 +34,11 @@ public class Proga {
         while (true) {
             System.out.println("Введите команду");
             String arguments;
-            String []commandNameAndArguments = input.nextLine().split(" ");
+            String[] commandNameAndArguments = input.nextLine().split(" ");
             String commandName = commandNameAndArguments[0];
-            if (commandNameAndArguments.length>1){
+            if (commandNameAndArguments.length > 1) {
                 arguments = commandNameAndArguments[1];
-            } else  arguments = "";
+            } else arguments = "";
             commandManager.execute(commandName, arguments);
         }
     }
