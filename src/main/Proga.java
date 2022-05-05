@@ -5,6 +5,7 @@ import utility.CommandManager;
 import utility.QuestionAboutPerson;
 import utility.parser.FromXml;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -40,7 +41,6 @@ public class Proga {
             } else  arguments = "";
             commandManager.execute(commandName, arguments);
         }
-
     }
 
 }

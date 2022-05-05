@@ -18,10 +18,10 @@ public class CommandManager {
         commands.put("show", new ShowCommand(collectionManager));
         commands.put("add", new AddCommand(collectionManager, questionAboutPerson));
         commands.put("update", new UpdateCommand(collectionManager, questionAboutPerson));
-        commands.put("remove_by_ID", new RemoveByIdCommand(collectionManager));
+        commands.put("remove_by_id", new RemoveByIdCommand(collectionManager));
         commands.put("clear", new ClearCommand(collectionManager));
         commands.put("save", new SaveCommand(collectionManager));
-        commands.put("execute_script", new ExecuteScriptCommand());
+        commands.put("execute_script", new ExecuteScriptCommand(this));
         commands.put("add_if_min", new AddIfMinCommand(collectionManager, questionAboutPerson));
         commands.put("remove_greater", new RemoveGreaterCommand(collectionManager, questionAboutPerson));
         commands.put("remove_lower", new RemoveLowerCommand(collectionManager, questionAboutPerson));
